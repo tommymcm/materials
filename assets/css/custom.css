@@ -1,0 +1,18 @@
+pre[class="language-*"] {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  border-radius: 0;
+  border: 1px solid #000000;
+  font-size: 0.5em;
+}
+
+pre[class="language-*"],
+code[class="language-*"] {
+  font-size: 0.5em;
+}
+
+/* Inline code */
+:not(pre) > code {
+  padding: 0.1em 0.3em;
+  border-radius: 0.2em;
+}
