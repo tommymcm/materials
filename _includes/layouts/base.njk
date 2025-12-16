@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if title %}{{ title }} - {% endif %}{{ site.name }}</title>
+  <link rel="stylesheet" href="https://latex.vercel.app/style.css">
+
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <!-- Basic theme -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.css">  
+  
+  <link rel="stylesheet" href="/assets/css/custom.css">
+</head>
+<body class="libertinus">
+  {% include "components/header.njk" %}
+
+  <main>
+    {{ content | safe }}
+  </main>
+
+  <!-- <footer> -->
+  <!--   <p>&copy; {{ site.year }} {{ site.name }}</p> -->
+  <!-- </footer> -->
+</body>
+</html>
