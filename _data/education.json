@@ -1,0 +1,35 @@
+[
+  {
+    "institution": "Northwestern University",
+    "location": "Evanston, Illinois",
+    "start": 2020,
+    "end": "Present",
+    "degrees": [
+      {
+        "degree": "Ph.D.",
+        "major": "Computer Science",
+        "advisor": "Simone Campanoni",
+        "date": "(Expected 2026)"
+      },
+      {
+        "degree": "M.Sc.",
+        "major": "Computer Science",
+        "advisor": "Simone Campanoni",
+        "date": 2023
+      }
+    ]
+  },
+  {
+    "institution": "Rose-Hulman Institute of Technology",
+    "location": "Terre Haute, Indiana",
+    "start": 2016,
+    "end": 2020,
+    "degrees": [
+      {
+        "degree": "B.Sc.",
+        "major": "Computer Engineering and Computer Science",
+        "date": 2020
+      }
+    ]
+  }
+]

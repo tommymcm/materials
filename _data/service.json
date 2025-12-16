@@ -1,0 +1,40 @@
+[
+  { "role": "Artifact Evaluation Committee",
+    "org": "ACM SIGPLAN International Conference on Compiler Construction (CC)",
+    "date": "2026"
+  },
+  { "role": "Board Member",
+    "org": "Computer Science Social Initiative, Northwestern University",
+    "date": "2021",
+    "end": "Present"
+  },
+  { "role": "Member",
+    "org": "CS Ph.D. Orientation Planning Committee, Northwestern University",
+    "date": "2022",
+    "end": 2024
+  },
+  { "role": "Member",
+    "org": "CS Ph.D. Visit Day Planning Committee, Northwestern University",
+    "date": 2022,
+    "end": 2024
+  },
+  { "role": "Student Volunteer",
+    "org": "International Symposium on Microarchitecture (MICRO)",
+    "date": "October 2022"
+  },
+  { "role": "Chairperson",
+    "org": "IEEE, Rose-Hulman Institute of Technology student branch",
+    "date": "August 2019",
+    "end": "May 2020"
+  },
+  { "role": "Corresponding Secretary",
+    "org": "Eta Kappa Nu (HKN), Epsilon Eta Chapter",
+    "date": "August 2019",
+    "end": "May 2020"
+  },
+  { "role": "Member",
+    "org": "Eta Kappa Nu (HKN), Epsilon Eta Chapter",
+    "date": "May 2018",
+    "end": "May 2020"
+  }
+]
