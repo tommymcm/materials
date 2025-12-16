@@ -1,8 +1,14 @@
-yourName = 'Tommy McMichen'
+const yourName = 'Tommy McMichen';
+
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
 module.exports = function(eleventyConfig) {
   // Copy static assets
-  // eleventyConfig.addPassthroughCopy("files");
+  eleventyConfig.addPassthroughCopy("files");  
+  eleventyConfig.addPassthroughCopy("assets");
+
+  // Add syntax highlighting
+  eleventyConfig.addPlugin(syntaxHighlight);
   
   // Blog collection
   // eleventyConfig.addCollection("blog", function(collectionApi) {
