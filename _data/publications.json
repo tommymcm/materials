@@ -7,7 +7,7 @@
     "year": 2026,
     "pdf": "/files/papers/ADE_CGO_2026.pdf",
     "doi": "XXX",
-    "artifact": "10.5281/zenodo.17633687",
+    "artifact": { "doi": "10.5281/zenodo.17633687" },
     "abstract": "Choosing an implementation for each data collection in a program is critical for performance, memory usage and energy consumption. Specialized implementations offer significant benefits over their general-purpose counterparts, but require certain properties of the data they store, such as uniqueness or ordering. To employ them, developers must either possess domain knowledge or transform their data to exhibit the desired property. One such transformation is data enumeration, where data items are assigned unique identifiers to enable fast equality checks and compact memory layout. In this paper, we automate data enumeration in the MemOIR compiler, achieving speedups of 2.16× on average (up to 8.72×) and reducing peak memory consumption by 5.6% on average (up to 50.7%). This work shows that automated techniques can manufacture data properties to unlock specialized collection implementations, pushing the envelope of collection-oriented optimization.",
     "tags": ["compilers", "optimization", "data collections"],
     "selected": true
@@ -20,8 +20,10 @@
     "year": 2025,
     "pdf": "/files/papers/BITSPEC_ASPLOS_2025.pdf",
     "doi": "10.1145/3676641.3716271",
-    "artifact": "10.5281/zenodo.10201049",
-    "badges": ["available"],
+    "artifact": {
+      "doi": "10.5281/zenodo.14776342",
+      "badges": ["available"]
+    },
     "abstract": "Tiny devices have become ubiquitous in people's daily lives. Their applications dictate tight energy budgets, but also require reasonable performance to meet user expectations. To this end, the hardware of tiny devices has been highly optimized, making further optimizations difficult. In this work, we identify a missed opportunity: the bitwidth selection of program variables. Today's compilers directly translate the bitwidth specified in the source code to the binary. However, we observe that most variables do not utilize the full bitwidth specified in the source code for the majority of execution. To leverage this opportunity, we propose BitSpec: a system that performs fine-grained speculation on the bitwidth of program variables. BitSpec is implemented as a compiler-architecture co-design, where the compiler transparently reduces the bitwidth of program variables to their expected needs and the hardware monitors speculative variables, reporting misspeculation to the software, which re-executes at the original bitwidth, ensuring correctness. BitSpec reduces energy consumption by 9.9% on average, up to 28.2%.",
     "tags": ["compilers", "embedded", "speculation", "hardware-software co-design"],
     "selected": true
@@ -34,8 +36,10 @@
     "year": 2024,
     "pdf": "/files/papers/MEMOIR_CGO_2024.pdf",
     "doi": "10.1109/CGO57630.2024.10444817",
-    "artifact": "10.5281/zenodo.14776342",
-    "badges": ["available", "reusable", "reproduced"],
+    "artifact": {
+      "doi": "10.5281/zenodo.10201049" ,
+      "badges": ["available", "reusable", "reproduced"]
+    },
     "abstract": "Choosing an implementation for each data collection in a program is critical for performance, memory usage and energy consumption. Specialized implementations offer significant benefits over their general-purpose counterparts, but require certain properties of the data they store, such as uniqueness or ordering. To employ them, developers must either possess domain knowledge or transform their data to exhibit the desired property. One such transformation is data enumeration, where data items are assigned unique identifiers to enable fast equality checks and compact memory layout. In this paper, we automate data enumeration in the MemOIR compiler, achieving speedups of 2.16× on average (up to 8.72×) and reducing peak memory consumption by 5.6% on average (up to 50.7%). This work shows that automated techniques can manufacture data properties to unlock specialized collection implementations, pushing the envelope of collection-oriented optimization.",
     "tags": ["compilers", "optimization", "analysis", "data collections", "memory"],
     "selected": true
@@ -48,8 +52,10 @@
     "year": 2024,
     "pdf": "/files/papers/ALASKA_ASPLOS_2024.pdf",
     "doi": "10.1145/3620666.3651326",
-    "artifact": "10.5281/zenodo.10880204",
-    "badges": ["available", "functional", "reproduced"],
+    "artifact": {
+      "doi": "10.5281/zenodo.10880204",
+      "badges": ["available", "functional", "reproduced"]
+    },
     "abstract": "The inability to relocate objects in unmanaged languages brings with it a menagerie of problems. Perhaps the most impactful is memory fragmentation, which has long plagued applications such as databases and web servers. These issues either fester or require Herculean programmer effort to address on a per-application basis because, in general, heap objects cannot be moved in unmanaged languages. In this work, we bridge this gap between unmanaged and managed languages through the use of handles, a level of indirection allowing heap object movement. Handles open the door to seamlessly employ runtime features from managed languages in existing, unmodified code written in unmanaged languages. We describe a new compiler and runtime system, Alaska, which automatically transforms pointer-based code to utilize handles, with optimizations to reduce performance impact. A codesigned runtime system manages this level of indirection and exploits heap object movement via an extensible service interface. We evaluate one such service, which eliminates fragmentation on the heap via compaction, reducing memory usage by up to 40% in Redis.",
     "tags": ["compilers", "runtimes", "allocators", "memory"],
     "selected": true
@@ -62,8 +68,10 @@
     "year": 2023,
     "pdf": "/files/papers/PSEC_CGO_2023.pdf",
     "doi": "10.1145/3579990.3580011",
-    "artifact": "10.5281/zenodo.7374843",
-    "badges": ["available", "functional", "reproduced"],
+    "artifact": {
+      "doi": "10.5281/zenodo.7374843",
+      "badges": ["available", "functional", "reproduced"]
+    },  
     "abstract": "Program State Element Characterization (PSEC) enables developers to more easily use modern language abstractions like OpenMP and C++ smart pointers. To accomplish this, PSEC provides a characterization of program state elements within a given code region. Today this process must be performed manually with no dedicated tool support. We implement PSEC in the CARMOT tool. Using CARMOT, developers are able to achieve parallel speedups that match those of hand-tuned OpenMP directives and avoid memory leaks with C++ smart pointers. We hope that PSEC and CARMOT empower developers to fully utilize the rich, expanding ecosystem of modern programming language abstractions.",
     "tags": ["compilers", "runtimes", "memory"]
   },
@@ -75,8 +83,10 @@
     "year": 2022,
     "pdf": "/files/papers/NOELLE_CGO_2022.pdf",
     "doi": "10.1109/CGO53902.2022.9741276",
-    "artifact": "10.5281/zenodo.5789400",
-    "badges": ["available", "functional", "reproduced"],
+    "artifact": {
+      "doi": "10.5281/zenodo.5789400" ,
+      "badges": ["available", "functional", "reproduced"]
+    },
     "abstract": "NOELLE provides abstractions to help build advanced code analyses and transformations on top of the production quality LLVM compiler. NOELLE has been used to accelerate a diverse set of research prototypes, with a powerful automatically parallelizing compiler built upon it. It is available open source on GitHub to help accelerate your compiler research. ",
     "tags": ["compilers", "optimization", "analysis", "abstractions"],
     "selected": false

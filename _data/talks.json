@@ -1,31 +1,31 @@
 [
   { "title": "Representing Data Collections for Analysis and Transformation",
     "venues": [
-      { "venue": "University of California, Santa Cruz", "date": 2025 },
-      { "venue": "University of Cambridge", "date": 2024 },
-      { "venue": "Rose-Hulman Institute of Technology", "date": 2023 },
-      { "venue": "Constellation Workshop", "date": 2023 }
+      { "location": "University of California, Santa Cruz", "date": 2025 },
+      { "location": "University of Cambridge", "date": 2024 },
+      { "location": "Rose-Hulman Institute of Technology", "date": 2023 },
+      { "location": "Constellation Workshop", "date": 2023 }
     ]
   },
   { "title": "Towards Collection-Oriented Compilation in LLVM",
     "venues": [
-      { "venue": "LLVM Developers' Meeting", "date": 2025 }
+      { "location": "LLVM Developers' Meeting", "date": 2025 }
     ]
   },
   {
     "title": "Compilers: Where are we? How did we get here? Where are we going?",
     "venues": [
-      { "venue": "Northwestern University", "date": 2025 }
+      { "location": "Northwestern University", "date": 2025 }
     ]
   },
   { "title": "Representing Data Collections in an SSA Form",
     "venues": [
-      { "venue": "IEEE/ACM International Symposium on Code Generation and Optimization (CGO)", "date": 2024 }
+      { "location": "IEEE/ACM International Symposium on Code Generation and Optimization (CGO)", "date": 2024 }
     ]
   },
   { "title": "Breaking a Vase and Putting it Back Together: The Folly of Premature 'Optimization'",
     "venues": [
-      { "venue": "Northwestern University", "date": 2023 }
+      { "location": "Northwestern University", "date": 2023 }
     ]
   }
 ]
