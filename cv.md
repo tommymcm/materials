@@ -36,7 +36,7 @@ layout: layouts/base.njk
 {% if talk.pdf %}<a href="{{ talk.pdf }}" download>[PDF]</a>{% endif %}
 
 {% for venue in talk.venues | sortByYear | reverse %}
-*{{venue.venue}}*, {{venue.date}}.
+*{{venue.location}}*, {{venue.date}}.
 {% endfor %}
 
 {% endfor %}
