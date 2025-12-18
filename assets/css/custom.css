@@ -15,6 +15,7 @@ a:hover {
 
 .badge-container {
     display: flex;
+    align-items: center;
     gap: 0.3em;
     justify-content: left;
     font-size: 1em;
