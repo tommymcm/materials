@@ -1,22 +1,7 @@
 ---
-layout: layouts/page.njk
+layout: layouts/base.njk
 ---
-# <center>Tommy McMichen</center>
-
-I am a PhD candidate at Northwestern University with a B.S. in Computer Engineering and Computer Science from Rose-Hulman Institute of Technology. I study compilers, specifically looking into new intermediate representations and abstractions. My research aims to broaden the optimization space of compilers through intermediate representations that grant empowering degrees of freedom through strong guarantees. I am broadly interested in static analysis, runtime system co-design, programming languages, and memory models. 
-
-
-```cpp
-class Test {
-  void foo();
-};
-```
-
-
-```python
-def hello():
-    print("Hello, world!")
-```
+# <center>Tommy M<sup>c</sup>Michen</center>
 
 ## Education
 {% for edu in education %}
