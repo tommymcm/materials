@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Duplicate of ACM's Artifact Evaluated & Functional JPEG. -->
+<!-- Please see the original copy for license and usage information
+https://www.acm.org/publications/policies/artifact-review-and-badging-current -->
+
+<svg
+    version="1.1"
+    id="svg1"
+    width="104"
+    height="104"
+    viewBox="0 0 104 104"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:svg="http://www.w3.org/2000/svg">
+  <desc>
+    The artifacts associated with the research are found to be documented, consistent, complete, exercisable, and include appropriate evidence of verification and validation.
+  </desc>
+
+  <!-- <defs> is only for reusing graphical elements that can be rendered. -->
+  <defs>
+    <!-- https://stackoverflow.com/a/4470476 -->
+    <linearGradient id="badge-color">
+      <stop stop-color="#ff3a56"/>
+    </linearGradient>
+  </defs>
+
+  <!-- The rotate rotates about the center of the square by 45 degrees -->
+  <!-- The scale factor feels like a triangle thing. -->
+  <!-- The translate makes sure the rotated square is centered and not clipped. -->
+  <!-- Specifying this as a matrix transform would probably be easier to scale? -->
+  <!-- transform="matrix(1, 1, 0, 1, 52, 0)" -->
+  <g
+      id="artifact-available">
+    <g
+        id="background-star">
+      <rect
+          x="0"
+          y="0"
+          width="104"
+          height="104"
+          cx="52"
+          cy="52"
+          style="fill: url(#badge-color);
+                 fill-opacity: 1;
+                 stroke: url(#badge-color);
+                 stroke-width: 1;
+                 stroke-opacity: 1"
+          transform="rotate(15 52 52)
+                     scale(0.70)
+                     translate(22.2, 22.2)"
+          id="rect0" />
+      <rect
+          x="0"
+          y="0"
+          width="104"
+          height="104"
+          style="fill: url(#badge-color);
+                 fill-opacity: 1;
+                 stroke: url(#badge-color);
+                 stroke-width: 1;
+                 stroke-opacity: 1"
+          transform="rotate(75 52 52)
+                     scale(0.70)
+                     translate(22.2, 22.2)"
+          id="rect1" />
+      <rect
+          x="0"
+          y="0"
+          width="104"
+          height="104"
+          cx="52"
+          cy="52"
+          style="fill: url(#badge-color);
+                 fill-opacity: 1;
+                 stroke: url(#badge-color);
+                 stroke-width: 1;
+                 stroke-opacity: 1;"
+          transform="rotate(45 52 52)
+                     scale(0.70)
+                     translate(22.2, 22.2)"
+          id="rect2" />
+    </g>
+
+    <rect
+        id="white-contrast"
+        x="0"
+        y="0"
+        width="80"
+        height="80"
+        cx="40"
+        cy="40"
+        style="fill: #ffffff;
+               fill-opacity: 1;
+               stroke: #ffffff);
+               stroke-width: 1;
+               stroke-opacity: 1;"
+        transform="rotate(45 52 52)
+                   scale(0.70)
+                   translate(35, 35)" />
+
+    <circle
+        style="fill: #ffffff;
+               fill-opacity: 1;
+               stroke: url(#badge-color);
+               stroke-width: 4;
+               stroke-dasharray: none;
+               stroke-opacity: 1"
+        id="path4"
+        cx="52"
+        cy="53"
+        r="25" />
+
+    <path
+        id="acm-name"
+        style="font-size: 20px;
+               line-height: 100%;
+               font-family: Sans;
+               font-weight: bold;
+               -inkscape-font-specification: 'Sans Bold';
+               text-align: center;
+               letter-spacing: -1.5px;
+               word-spacing: 0px;
+               shape-inside: url(#white-contrast);
+               fill: url(#badge-color);
+               fill-opacity: 1;
+               stroke: none;
+               stroke-width: 4;
+               stroke-dasharray: none;
+               stroke-opacity: 1"
+        d="m 37.667738,52.425593
+           q -1.039454,0 -1.568461,0.352672 -0.519726,0.352671 -0.519726,1.039453 0,0.631097 0.417637,0.99305 0.426918,0.352671 1.178666,0.352671 0.937364,0 1.577742,-0.66822 0.640377,-0.677501 0.640377,-1.689112
+           v -0.380514
+           z
+           m 5.076617,-1.252913
+           v 5.930454
+           h -3.350382
+           v -1.540619
+           q -0.668219,0.946645 -1.503495,1.382845 -0.835275,0.426918 -2.032503,0.426918 -1.614865,0 -2.626476,-0.937364 -1.00233,-0.946645 -1.00233,-2.450141 0,-1.828324 1.252913,-2.682161 1.262193,-0.853837 3.953636,-0.853837
+           h 1.958255
+           v -0.259863
+           q 0,-0.788871 -0.621816,-1.150824 -0.621815,-0.371233 -1.939694,-0.371233 -1.067296,0 -1.986099,0.213459 -0.918802,0.213459 -1.707673,0.640378
+           v -2.533669
+           q 1.067296,-0.259863 2.143872,-0.389795 1.076578,-0.139212 2.153155,-0.139212 2.812092,0 4.055724,1.1137 1.252913,1.10442 1.252913,3.600964
+           z
+           m 10.471434,-4.139252
+           v 2.710004
+           Q 52.538288,49.27939 51.851507,49.05665 51.174006,48.83391 50.44082,48.83391
+           q -1.392125,0 -2.171716,0.816713 -0.770309,0.807433 -0.770309,2.264524 0,1.457091 0.770309,2.273805 0.77959,0.807432 2.171716,0.807432 0.77959,0 1.475652,-0.232021 0.705344,-0.23202 1.299317,-0.686781
+           v 2.719284
+           q -0.77959,0.287706 -1.587022,0.426919 -0.798152,0.148493 -1.605585,0.148493 -2.812093,0 -4.399116,-1.438529 -1.587023,-1.447811 -1.587023,-4.018602 0,-2.570791 1.587023,-4.009321 1.587023,-1.44781 4.399116,-1.44781 0.816714,0 1.605585,0.148493 0.798151,0.139213 1.587022,0.426919
+           z
+           m 11.483045,1.401406
+           q 0.631097,-0.965207 1.494214,-1.466372 0.872399,-0.510446 1.911853,-0.510446 1.791201,0 2.728566,1.104419 0.937364,1.10442 0.937364,3.211169
+           v 6.32953
+           H 68.42973
+           v -5.420008
+           q 0.0093,-0.120651 0.0093,-0.250582 0.0093,-0.129932 0.0093,-0.371234 0,-1.104419 -0.324829,-1.596303 -0.32483,-0.501166 -1.048735,-0.501166 -0.946645,0 -1.466372,0.779591 -0.510446,0.77959 -0.529007,2.255243
+           v 5.104459
+           h -3.3411
+           v -5.420008
+           q 0,-1.726235 -0.296986,-2.218119 -0.296987,-0.501166 -1.058015,-0.501166 -0.955926,0 -1.475653,0.788871 -0.519727,0.779591 -0.519727,2.236682
+           v 5.11374
+           H 55.046765
+           V 46.708598
+           h 3.341101
+           v 1.522057
+           q 0.612536,-0.881679 1.401407,-1.327159 0.798151,-0.44548 1.754077,-0.44548 1.076577,0 1.902571,0.519727 0.825994,0.519726 1.252913,1.457091
+           z"
+        aria-label="acm" />
+  </g>
+</svg>
