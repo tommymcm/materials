@@ -1,0 +1,9 @@
+<h1>Research</h1>
+
+<div class="filters">
+  <button class="tag-btn active" onclick="clearFilters()">All</button>
+  {% set allTags = publications | map(attribute="tags") | flatten | unique | sort %}
+  {% for tag in allTags %}
+    <button class="tag-btn" data-tag="{{ tag }}" onclick="filterTag('{{ tag }}')">{{ tag }}</button>
+  {% endfor %}
+</div>
