@@ -2,6 +2,7 @@
 layout: layouts/post.njk
 title: Deploying Eleventy site with GitHub Actions
 date: 2025-12-17
+published: true
 desc: A brief explanation of how I publish my Eleventy website using github actions.
 tags:
   - posts
@@ -21,7 +22,7 @@ After finishing up my port, I was interested in automate the process of publishi
 I originally did this work with two repos because I wanted to have the materials (unpublished papers, course materials, etc.) not be public.
 Since then, I moved over to a public repo to avoid hitting any GitHub Action limits<label for="sn-2" class="sidenote-toggle sidenote-number"></label>
 <input type="checkbox" id="sn-2" class="sidenote-toggle" />
-<span class="sidenote">I am the ultimate penny pincher.</span>
+<span class="sidenote">I am a penny pincher.</span>
 and use a private fork to hold uinpublished items.
 
 Here's the step-by-step process that I took:

@@ -4,12 +4,9 @@ title: Blog
 eleventyExcludeFromCollections: true
 ---
 
-{% set allPosts = collections.posts | reverse %}
-
 <div class="posts-list">
   <ul>
-    {% for post in allPosts %}
-
+    {% for post in collections.publishedPosts %}
 
     <div class="post-item">
       <a href="{{ post.url }}" class="post-title">

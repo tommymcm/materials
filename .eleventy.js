@@ -15,7 +15,9 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("files");  
   eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.addPassthroughCopy({
-    "node_modules/latex.css/": "assets/css/latex.css/"
+    "node_modules/latex.css/style.css": "assets/css/latex.css/style.css",
+    "node_modules/prismjs/themes/prism.css": "assets/css/prismjs/prism.css"
+    // "node_modules/prismjs/themes/prism.js": "assets/js/prismjs/prism.js"
   });
   
   // Map filter - gets array of values from array of objects
@@ -98,10 +100,12 @@ module.exports = function(eleventyConfig) {
     return string;
   });
   
-  // Blog collection
-  // eleventyConfig.addCollection("blog", function(collectionApi) {
-  //   return collectionApi.getFilteredByGlob("blog/*.md").reverse();
-  // });
+  // Published blog posts
+  eleventyConfig.addCollection("publishedPosts", function(collectionApi) {
+    return collectionApi.getFilteredByTag("posts")
+      .filter(post => post.data.published === true)
+      .reverse();
+  });  
   
   // Sort publications by year
   eleventyConfig.addFilter("sortByYear", function(array) {

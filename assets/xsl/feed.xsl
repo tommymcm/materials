@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title><xsl:value-of select="/rss/channel/title"/></title>
 
-        <link rel="stylesheet" href="https://latex.vercel.app/style.css" />
+        <link rel="stylesheet" type="text/css" href="/assets/css/latex.css/style.css" />
         <link rel="stylesheet" type="text/css" href="/assets/css/custom.css"/>
       </head>
       <body>
