@@ -14,6 +14,9 @@ module.exports = function(eleventyConfig) {
   // Copy static assets
   eleventyConfig.addPassthroughCopy("files");  
   eleventyConfig.addPassthroughCopy("assets");
+  eleventyConfig.addPassthroughCopy({
+    "node_modules/latex.css/": "assets/css/latex.css/"
+  });
   
   // Map filter - gets array of values from array of objects
   eleventyConfig.addFilter("map", function(array, key) {
