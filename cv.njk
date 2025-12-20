@@ -1,0 +1,83 @@
+---
+layout: layouts/base.njk
+---
+<h1><center>Tommy M<sup>c</sup>Michen</center></h1>
+
+<h2>Education</h2>
+{% for edu in education %}
+
+<b>{{edu.institution}}</b>, </i>{{edu.location}}</i>.
+
+{% for degree in edu.degrees %}
+<br>
+{{degree.degree}} in {{degree.major}}
+{% if degree.advisor %}
+  , <i>Advised by {{degree.advisor}}</i>
+{% endif %}.
+{{degree.date}}.
+{% endfor %}
+<br>
+<br>
+
+{% endfor %}
+
+
+<h2>Publications</h2>
+{% include "components/publications.njk" %}
+
+
+<h2>Talks</h2>
+{% for talk in talks | sortByYear | reverse %}
+<font size=4em><b>{{talk.title}}</b></font>
+{%- if talk.links -%}
+<br>
+{%- if talk.links.pdf -%}
+  <a href="{{ talk.links.pdf }}" download>Slides</a>
+{%- endif -%}
+{%- if talk.links.video -%}
+  <a href="{{ talk.links.video }}">Video</a>
+{%- endif -%}
+{% endif -%}
+{%- for venue in talk.venues | sortByYear | reverse -%}
+<br>
+<i>{{venue.location}}</i>, {{venue.date}}.
+{%- endfor -%}
+<br>
+{% endfor %}
+
+
+
+<h2>Posters</h2>
+{% for poster in posters | sortByYear | reverse %}
+<font size=4em><b>{{poster.title}}</b></font>
+{%- if poster.pdf -%}
+  <a href="{{ poster.pdf }}" download>[PDF]</a>
+{%- endif -%}
+{%- for venue in poster.venues | sortByYear | reverse -%}
+<br>
+<i>{{ venue.location }}</i>, {{ venue.date }}.
+{%- endfor -%}
+<br>
+
+{% endfor %}
+
+
+
+<h2>Service</h2>
+{% for serve in service %}
+<b>{{serve.role}}</b>, <i>{{serve.org}}</i>. {{serve.date}}{% if serve.end %}—{{serve.end}}{% endif %}.
+<br>
+{% endfor %}
+
+
+
+<h2>Teaching Experience</h2>
+{% for teach in teaching %}
+
+<b>{{teach.role}}</b> for <a href="{{ teach.url }}">{{ teach.name }}</a>.
+{% if teach.instructor %}
+<br>
+<i>Instructor: {{ teach.instructor }}</i>
+{% endif %}
+<br><br>
+{% endfor %}

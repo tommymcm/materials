@@ -8,24 +8,11 @@
     ]
   },
   { "title": "Towards Collection-Oriented Compilation in LLVM",
+    "links": {
+      "video": "https://www.youtube.com/watch?v=N2Qv_o5lhCE"
+    },
     "venues": [
       { "location": "LLVM Developers' Meeting", "date": 2025 }
-    ]
-  },
-  {
-    "title": "Compilers: Where are we? How did we get here? Where are we going?",
-    "venues": [
-      { "location": "Northwestern University", "date": 2025 }
-    ]
-  },
-  { "title": "Representing Data Collections in an SSA Form",
-    "venues": [
-      { "location": "IEEE/ACM International Symposium on Code Generation and Optimization (CGO)", "date": 2024 }
-    ]
-  },
-  { "title": "Breaking a Vase and Putting it Back Together: The Folly of Premature 'Optimization'",
-    "venues": [
-      { "location": "Northwestern University", "date": 2023 }
     ]
   }
 ]

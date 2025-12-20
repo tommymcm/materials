@@ -1,8 +1,8 @@
 [
   { "title": "Collection-Oriented Compilation with MemOIR",
     "venues": [
-      { "venue": "LLVM Developers' Meeting", "date": 2025 },
-      { "venue": "Greater Chicago Area Systems Systems Workshop", "date": 2025 }
+      { "location": "LLVM Developers' Meeting", "date": 2025 },
+      { "location": "Greater Chicago Area Systems Systems Workshop", "date": 2025 }
     ]
   }
 ]

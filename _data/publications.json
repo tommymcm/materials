@@ -2,8 +2,10 @@
   {
     "title": "Automatic Data Enumeration for Fast Data Collections",
     "authors": ["Tommy McMichen", "Simone Campanoni"],
-    "venue": "IEEE/ACM International Symposium on Code Generation and Optimization",
-    "venue-abbr": "CGO",
+    "venue": {
+      "name": "IEEE/ACM International Symposium on Code Generation and Optimization",
+      "abbr": "CGO"
+    },
     "year": 2026,
     "pdf": "/files/papers/ADE_CGO_2026.pdf",
     "doi": "XXX",
@@ -15,8 +17,10 @@
   {
     "title": "Saving Energy with Per-Variable Bitwidth Speculation",
     "authors": ["Tommy McMichen", "David Dlott", "Panitan Wongse-ammat", "Nathan Greiner", "Hussain Khajanchi", "Russ Joseph", "Simone Campanoni"],
-    "venue": "ACM International Conference on Architectural Support for Programming Languages and Operating Systems",
-    "venue-abbr": "ASPLOS",
+    "venue": {
+      "name": "ACM International Conference on Architectural Support for Programming Languages and Operating Systems",
+      "abbr": "ASPLOS"
+    },
     "year": 2025,
     "pdf": "/files/papers/BITSPEC_ASPLOS_2025.pdf",
     "doi": "10.1145/3676641.3716271",
@@ -31,8 +35,10 @@
   {
     "title": "Representing Data Collections in an SSA Form",
     "authors": ["Tommy McMichen", "Nathan Greiner", "Peter Zhong", "Federico Sossai", "Atmn Patel", "Simone Campanoni"],
-    "venue": "IEEE/ACM International Symposium on Code Generation and Optimization",
-    "venue-abbr": "CGO",
+    "venue": {
+      "name": "IEEE/ACM International Symposium on Code Generation and Optimization",
+      "abbr": "CGO"
+    },
     "year": 2024,
     "pdf": "/files/papers/MEMOIR_CGO_2024.pdf",
     "doi": "10.1109/CGO57630.2024.10444817",
@@ -47,8 +53,10 @@
   {
     "title": "Getting a Handle on Unmanaged Memory",
     "authors": ["Nick Wanninger", "Tommy McMichen", "Simone Campanoni", "Peter Dinda"],
-    "venue": "ACM International Conference on Architectural Support for Programming Languages and Operating Systems",
-    "venue-abbr": "ASPLOS",
+    "venue": {
+      "name": "ACM International Conference on Architectural Support for Programming Languages and Operating Systems",
+      "abbr": "ASPLOS"
+    },
     "year": 2024,
     "pdf": "/files/papers/ALASKA_ASPLOS_2024.pdf",
     "doi": "10.1145/3620666.3651326",
@@ -63,8 +71,10 @@
   {
     "title": "Program State Element Characterization",
     "authors": ["Enrico Armenio Deiana", "Brian Suchy", "Michael Wilkins", "Brian Homerding", "Tommy McMichen", "Katarzyna Dunajewski", "Peter Dinda", "Nikos Hardavellas", "Simone Campanoni"],
-    "venue": "IEEE/ACM International Symposium on Code Generation and Optimization",
-    "venue-abbr": "CGO",
+    "venue": {
+      "name": "IEEE/ACM International Symposium on Code Generation and Optimization",
+      "abbr": "CGO"
+    },
     "year": 2023,
     "pdf": "/files/papers/PSEC_CGO_2023.pdf",
     "doi": "10.1145/3579990.3580011",
@@ -78,8 +88,10 @@
   {
     "title": "NOELLE Offers Empowering LLVM Extensions",
     "authors": ["Angelo Matni", "Enrico Armenio Deiana", "Yian Su", "Lukas Gross", "Souradip Ghosh", "Sotiris Apostolakis", "Ziyang Xu", "Zujun Tan", "Ishita Chaturvedi", "Brian Homerding", "Tommy McMichen", "David I. August", "Simone Campanoni"],
-    "venue": "IEEE/ACM International Symposium on Code Generation and Optimization",
-    "venue-abbr": "CGO",
+    "venue": {
+      "name": "IEEE/ACM International Symposium on Code Generation and Optimization",
+      "abbr": "CGO"
+    },
     "year": 2022,
     "pdf": "/files/papers/NOELLE_CGO_2022.pdf",
     "doi": "10.1109/CGO53902.2022.9741276",
@@ -94,8 +106,10 @@
   {
     "title": "Fine-Grained Acceleration using Runtime Integrated Custom Execution (RICE)",
     "authors": ["Leela Pakanati", "Tommy McMichen", "Zachary Estrada"],
-    "venue": "International Conference on Compliers, Architectures and Synthesis for Embedded Systems Companion",
-    "venue-abbr": "CASES",
+    "venue": {
+      "name": "International Conference on Compliers, Architectures and Synthesis for Embedded Systems Companion",
+      "abbr": "CASES"
+    },
     "year": 2019,
     "pdf": "/files/papers/RICE_CASES_2019.pdf",
     "doi": "10.1145/3349569.3351536",
