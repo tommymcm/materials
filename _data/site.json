@@ -1,8 +1,10 @@
 {
   "name": "Tommy McMichen",
   "title": "Ph.D. Candidate",
-  "institution": "Northwestern University",
-  "email": "mcmichen@u.northwesternedu",
+  "email": "mcmichen@u.northwestern.edu",
   "website": "http://mcmichen.cc",
-  "year": "2025"
+  "phone": "+1 (317) 519-2163",
+  "year": "2025",
+  "institution": "Northwestern University",
+  "department": "Dept. of Computer Science"
 }

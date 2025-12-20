@@ -21,6 +21,18 @@ jobs:
       
       - name: Build Eleventy site
         run: bun run eleventy
+
+      - name: Install LaTeX
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y texlive-latex-base texlive-latex-extra texlive-fonts-recommended
+      
+      - name: Compile CV to PDF
+        run: |
+          cd _site/cv
+          pdflatex cv.tex
+          pdflatex cv.tex
+        continue-on-error: true
       
       - name: Deploy to GitHub Pages repo
         uses: peaceiris/actions-gh-pages@v3

@@ -1,0 +1,35 @@
+[
+  {
+    "award": "LLVM Foundation Student Travel Grant",
+    "event": "LLVM Developers' Meeting",
+    "year": "2025"
+  },
+  {
+    "award": "NSF Student Travel Grant",
+    "event": "ASPLOS",
+    "year": "2025"
+  },
+  {
+    "award": "NSF Student Travel Grant",
+    "event": "HPCA/PPoPP/CGO",
+    "year": "2024"
+  },
+  {
+    "award": "NSF Student Travel Grant",
+    "event": "HPCA/PPoPP/CGO",
+    "year": "2023"
+  },
+  {
+    "award": "IP/ROP Student Travel Award",
+    "year": "2019"
+  },
+  {
+    "award": "NSF Student Travel Grant",
+    "event": "ESweek",
+    "year": "2019"
+  },
+  {
+    "award": "IP/ROP Student Project Grant",
+    "year": "2018"
+  }
+]

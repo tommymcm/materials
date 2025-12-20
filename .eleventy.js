@@ -1,8 +1,10 @@
 const yourName = 'Tommy McMichen';
 
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
-
 const rss = require("@11ty/eleventy-plugin-rss");
+const nunjucks = require("nunjucks");
+const { execSync } = require('child_process');
+const path = require('path');
 
 module.exports = function(eleventyConfig) {
   // Add syntax highlighting
@@ -15,8 +17,10 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("files");  
   eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.addPassthroughCopy({
+    // LaTeX.css
     "node_modules/latex.css/style.css": "assets/css/latex.css/style.css",
-    "node_modules/prismjs/themes/prism.css": "assets/css/prismjs/prism.css"
+    // PrismJS
+    "node_modules/prismjs/themes/prism.css": "assets/css/prismjs/prism.css",
     // "node_modules/prismjs/themes/prism.js": "assets/js/prismjs/prism.js"
   });
   
@@ -57,6 +61,7 @@ module.exports = function(eleventyConfig) {
 
   // Reverse filter - reverses array
   eleventyConfig.addFilter("reverse", function(array) {
+    if (!array || !Array.isArray(array)) return [];
     return [...array].reverse();
   });
 
@@ -112,7 +117,7 @@ module.exports = function(eleventyConfig) {
     return array.sort((a, b) => b.year - a.year);
   });
 
- // Format authors with your name in bold
+  // Format authors with your name in bold
   eleventyConfig.addFilter("formatAuthors", function(authors) {
     if (!authors) return "";
     
@@ -123,7 +128,65 @@ module.exports = function(eleventyConfig) {
       return author;
     }).join(", ");
   });
+  
+  // Add filters to the tex environment
+  eleventyConfig.addFilter("texEscape", function(text) {
+    if (!text) return "";
+    text = String(text);
+    return text
+      .replace(/\\/g, '\\textbackslash{}')
+      .replace(/[&%$#_{}]/g, '\\$&')
+      .replace(/~/g, '\\textasciitilde{}')
+      .replace(/\^/g, '\\textasciicircum{}');
+  });
 
+  // Format authors with your name in bold
+  eleventyConfig.addFilter("texFormatAuthors", function(authors) {
+    if (!authors) return "";
+    
+    return authors.map(author => {
+      if (author === yourName) {
+        return `\\textbf{${author}}`;
+      }
+      return author;
+    }).join(", ");
+  });
+  
+  eleventyConfig.addFilter("toWWW", function(url) {
+    if (!url) return "";
+    return url.replace("https://", "www.").replace("http://", "www.");
+  });
+
+// After build: compile LaTeX to PDF
+  eleventyConfig.on('eleventy.after', async () => {
+    const texFile = path.join('_site', 'cv', 'cv.tex');
+    const cvDir = path.join('_site', 'cv');
+    
+    try {
+      console.log('Compiling CV to PDF...');
+      
+      // Set TEXINPUTS to include the assets/images directory
+      const texInputs = path.join(process.cwd(), '_site', 'assets', 'images') + ':';
+      
+      // Run pdflatex twice to resolve references
+      execSync('pdflatex -interaction=nonstopmode cv.tex', {
+        cwd: cvDir,
+        stdio: 'inherit',
+        env: { ...process.env, TEXINPUTS: texInputs }
+      });
+      
+      execSync('pdflatex -interaction=nonstopmode cv.tex', {
+        cwd: cvDir,
+        stdio: 'inherit',
+        env: { ...process.env, TEXINPUTS: texInputs }
+      });
+      
+      console.log('CV compiled successfully!');
+    } catch (error) {
+      console.error('LaTeX compilation failed:', error.message);
+      // Don't throw - let the build continue
+    }
+  });
   
   return {
     dir: {

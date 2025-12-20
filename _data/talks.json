@@ -1,10 +1,31 @@
 [
   { "title": "Representing Data Collections for Analysis and Transformation",
     "venues": [
-      { "location": "University of California, Santa Cruz", "date": 2025 },
-      { "location": "University of Cambridge", "date": 2024 },
-      { "location": "Rose-Hulman Institute of Technology", "date": 2023 },
-      { "location": "Constellation Workshop", "date": 2023 }
+      {
+        "series": "Languages, Systems, and Data Seminar",
+        "location": "University of California, Santa Cruz",
+        "date": "October 2025"
+      },
+      {
+        "series": "Computer Architecture Group Meeting",
+        "location": "University of Cambridge",
+        "date": "March 2024"
+      },
+      {
+        "series": "Tech Talk",
+        "location": "Rose-Hulman Institute of Technology",
+        "date": "October 2023"
+      },
+      {
+        "series": "Student Seminar Series",
+        "location": "Northwestern University",
+        "date": "October 2023"
+      },
+      {
+        "series": "Constellation Workshop",
+        "location": "Northwestern University",
+        "date": "July 2023"
+      }
     ]
   },
   { "title": "Towards Collection-Oriented Compilation in LLVM",
@@ -12,7 +33,11 @@
       "video": "https://www.youtube.com/watch?v=N2Qv_o5lhCE"
     },
     "venues": [
-      { "location": "LLVM Developers' Meeting", "date": 2025 }
+      {
+        "series": "LLVM Developers' Meeting",
+        "location": "Santa Clara, California",
+        "date":"October  2025"
+      }
     ]
   }
 ]

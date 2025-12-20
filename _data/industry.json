@@ -1,0 +1,36 @@
+[
+  {
+    "company": "Meta",
+    "location": "Menlo Park, California, USA",
+    "position": "Software Engineering Intern, Programming Languages and Runtimes, Android Native Compiler Team",
+    "period": "Summer 2025",
+    "bullets": [
+      "Improved the representation of ClangIR, an open-source C/C++ MLIR compiler.",
+      "Developed analyses and transformations for C++ move semantics in ClangIR.",
+      "Lead ClangIR open-source development efforts through issue creation and code reviews."
+    ]
+  },
+  {
+    "company": "Texas Instruments",
+    "location": "Dallas, Texas, USA",
+    "position": "Digital Design Engineering Intern, Embedded Processors, Analytics Team",
+    "period": "Summer 2019, Summer 2020",
+    "bullets": [
+      "Performed integration testing for hardware implementation of cache coherence protocol.",
+      "Developed coverage metrics for cache coherence testing.",
+      "Implemented automatic generation of RTL and TLM from descriptor files."
+    ]
+  },
+  {
+    "company": "National Instruments",
+    "location": "Austin, Texas, USA",
+    "position": "R&D Software Engineering Intern, Digitizers",
+    "period": "Summer 2018",
+    "bullets": [
+      "Designed and implemented FPGA logic for new function generator feature with LabVIEW.",
+      "Added kernel, driver and API support for new function generator feature.",
+      "Implemented full driver stack support for highly-customisable oscilloscope triggers.",
+      "Communicated with multiple teams to add new .NET API entry points."
+    ]
+  }
+]

@@ -1,0 +1,198 @@
+---
+permalink: /cv/cv.tex
+eleventyExcludeFromCollections: true
+---
+
+\documentclass{article}
+\usepackage[
+  a4paper,
+  margin=1in,
+  headsep=4pt,
+]{geometry}
+
+\setlength\parindent{0pt}
+
+\usepackage{array}
+
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  filecolor=magenta,      
+  urlcolor=red,
+}
+
+\usepackage{multirow}
+
+\title{Curriculum Vitae}
+\author{ {{site.name}} }
+
+\begin{document}
+
+\thispagestyle{fancy}
+
+\setlength{\headheight}{4em}
+\fancyhf{} 
+\fancyhead[C]{
+{\huge \bf \textsc{Tommy M\textsuperscript{c}Michen}} \\
+\href{mailto:{{site.email}} }{\bf {{site.email}} }
+}
+\fancyhead[L]{
+Northwestern University \\
+Dept. of Computer Science
+}
+\fancyhead[R]{
++1 (317) 519-2163 \\
+\href{ {{site.website}} }{\bf {{site.website | toWWW}}}
+}
+
+\vspace{2em}
+% =========================================================
+
+\noindent{\large \bf \textsc{Research Interests}}
+\vspace{0.5em}
+
+My interests lie in {\em compilers}, specifically how we can leverage modern programming languages to design general-purpose {\em intermediate representations} that (1) improve the precision of {\em static analysis} by preserving high-level information, (2) enable novel {\em optimizations} on the layout and organization of memory, and (3) open the door to {\em compiler-runtime codesigns} that rethink existing hardware abstractions.
+
+\vspace{1em}
+\hrule
+\vspace{0.5em}
+% =========================================================
+
+\noindent{\large \bf \textsc{Education} }
+\vspace{0.5em}
+
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}l r}
+
+\textbf{Northwestern University}, Evanston, Illinois, USA & 2020 -- Present \\
+Ph.D. in Computer Science, {\em Advised by Simone Campanoni} & (Expected 2026)\\
+M.Sc. in Computer Science, {\em Advised by Simone Campanoni} & 2023 \\
+\\
+\textbf{Rose-Hulman Institute of Technology}, Terre Haute, Indiana, USA & 2016--2020 \\
+B.Sc. in Computer Engineering and Computer Science & \\
+
+\end{tabular*}
+
+
+\vspace{1em}
+\hrule
+\vspace{0.5em}
+% =========================================================
+
+\noindent{\large \bf \textsc{Publications}}
+\vspace{0.5em}
+
+
+\begin{tabular*}{\textwidth}{@{\noindent} p{.86\textwidth} r}
+  
+  {% for pub in publications %}
+    {% if not pub.artifact.badges %}
+      \vspace{0em}
+      {%endif %}
+    
+  {\bf {{pub.title}}}, {\em {{pub.venue.abbr}} {{pub.year}}.} & 
+  {% if pub.artifact.badges %}
+      {% for badge in pub.artifact.badges %}
+        \includegraphics[height=1.5em]{ {{badge}}.pdf}
+                        {% endfor %}
+  {% endif %} \\
+\multicolumn{2}{@{\noindent} p{1\textwidth}}{ {\small {{pub.authors | texFormatAuthors | safe}}. } } \\
+{% endfor %}
+
+\end{tabular*}
+  
+\vspace{1em}
+\hrule
+\vspace{0.5em}
+% =========================================================
+
+\noindent{\large \bf \textsc{Invited Talks}}
+\vspace{0.5em}
+\\
+
+{%- for talk in talks -%}
+{\bf ``{{talk.title}}''} \\
+{%- for venue in talk.venues -%}
+{{venue.series | texEscape | safe}}{%if venue.location%}, {\em {{venue.location | texEscape | safe}}}{%endif%}.\hfill {{venue.date}} \\
+  {%- endfor -%}
+    \\
+{%- endfor -%}
+    
+\vspace{-1em}
+\hrule
+\vspace{0.5em}
+% =========================================================
+
+\noindent{\large \bf \textsc{Industry Experience}}
+\vspace{0.5em}
+
+{% for job in industry %}
+{%raw%}\textbf{{%endraw%}{{job.company}}}, {{job.location}} \hfill {{job.period}} \\
+{\em {{job.position | texEscape | safe }} }   \\
+{%- for bullet in job.bullets -%}         
+$\bullet$ {{bullet | texEscape | safe}} \\
+{%- endfor -%}
+\vspace{0.5em}    
+{% endfor %}
+
+\vspace{1em}
+\hrule
+\vspace{0.5em}
+% =========================================================
+
+\noindent{\large \bf \textsc{Teaching Experience}}
+\vspace{0.5em}
+\\
+
+{%- for teach in teaching -%}
+{%raw%}\textbf{{%endraw%}{{teach.role}}}, {\em {{teach.name | texEscape | safe}}}{%if teach.instructor%}, {{teach.instructor}}{%endif%}. \hfill {{teach.date}} \\
+{%- endfor -%}
+
+    
+\vspace{1em}
+\hrule
+\vspace{0.5em}
+% =========================================================
+
+\noindent{\large \bf \textsc{Service}}
+\vspace{0.5em}
+\\
+
+{%- for serve in service -%}
+{%raw%}\textbf{{%endraw%}{{serve.role}}}, {{serve.org}}. \hfill {{serve.date}} \\
+{%- endfor -%}
+
+\vspace{1em}
+\hrule
+\vspace{0.5em}
+% =========================================================
+
+\noindent{\large \bf \textsc{Funding and Awards}}
+\vspace{0.5em}
+\\
+
+{%- for fund in funding -%}
+{{fund.award | texEscape | safe}}{%if fund.event%}, {\em {{fund.event | texEscape | safe}}}{%endif%}. \hfill {{fund.year}} \\
+  {%- endfor -%}
+
+    
+\vspace{1em}
+\hrule
+\vspace{0.5em}
+% =========================================================
+
+
+\noindent{\large \bf \textsc{Research Advising}}
+\vspace{0.5em}
+\\
+
+{%- for student in advising -%}
+  {{student.name | texEscape | safe}}, {{student.degree | texEscape | safe}}, {\em {{student.topic | texEscape | safe}}}. \hfill {{student.start}} -- {% if student.end %}{{student.end}}{% else %}Present{%endif%} \\
+  {%- endfor -%}
+
+
+\end{document}

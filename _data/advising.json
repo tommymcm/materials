@@ -1,0 +1,21 @@
+[
+  {
+    "name": "Akash Deo",
+    "degree": "M.Sc.",
+    "topic": "Designing compiler tools for AI-assisted vectorization.",
+    "start": "2025"
+  },
+  {
+    "name": "Benjamin Ye",
+    "degree": "M.Sc.",
+    "topic": "Characterizing differences between LLVM front-ends.",
+    "start": "2025"
+  },
+  {
+    "name": "Benjamin Ye",
+    "degree": "B.Sc.",
+    "topic": "Automatically generating \\textsc{MemOIR} from Rust.",
+    "start": "2024",
+    "end": "2025"
+  }
+]
