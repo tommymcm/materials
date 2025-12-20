@@ -1,6 +1,6 @@
 ---
 layout: layouts/post.njk
-title: Deploying Eleventy site to GitHub Page with GitHub Actions
+title: Deploying Eleventy site with GitHub Actions
 date: 2025-12-17
 desc: A brief explanation of how I publish my Eleventy website using github actions.
 tags:
