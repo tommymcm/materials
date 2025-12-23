@@ -9,7 +9,10 @@
     "year": 2026,
     "pdf": "/files/papers/ADE_CGO_2026.pdf",
     "doi": "XXX",
-    "artifact": { "doi": "10.5281/zenodo.17633687" },
+    "artifact": {
+      "doi": "10.5281/zenodo.17633687",
+      "badges": [ "available", "reusable", "reproduced" ]
+    },
     "abstract": "Choosing an implementation for each data collection in a program is critical for performance, memory usage and energy consumption. Specialized implementations offer significant benefits over their general-purpose counterparts, but require certain properties of the data they store, such as uniqueness or ordering. To employ them, developers must either possess domain knowledge or transform their data to exhibit the desired property. One such transformation is data enumeration, where data items are assigned unique identifiers to enable fast equality checks and compact memory layout. In this paper, we automate data enumeration in the MemOIR compiler, achieving speedups of 2.16× on average (up to 8.72×) and reducing peak memory consumption by 5.6% on average (up to 50.7%). This work shows that automated techniques can manufacture data properties to unlock specialized collection implementations, pushing the envelope of collection-oriented optimization.",
     "tags": ["compilers", "optimization", "data collections"],
     "selected": true
