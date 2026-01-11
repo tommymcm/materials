@@ -108,3 +108,8 @@ code[class*="language-"] {
   padding: 0 0.5rem;
 }
 
+/* List */
+ul {
+  list-style: none;
+  padding-left: 0;
+}
