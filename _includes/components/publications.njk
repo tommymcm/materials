@@ -1,4 +1,15 @@
-{% for pub in publications | sortByYear %}
+{%- if projectName -%}
+  {%- set filteredPubs = [] -%}
+  {%- for pub in publications -%}
+    {%- if pub.projects and (projectName in pub.projects) -%}
+      {%- set filteredPubs = (filteredPubs.push(pub), filteredPubs) -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- else -%}
+  {%- set filteredPubs = publications -%}
+{%- endif -%}
+
+{% for pub in filteredPubs | sortByYear %}
 
 <font size=4em><b>{{pub.title}}</b></font>
 
