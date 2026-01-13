@@ -30,6 +30,7 @@ jobs:
       - name: Compile CV to PDF
         run: |
           cd _site/cv
+          export TEXINPUTS=../assets/images/:$TEXINPUTS
           pdflatex cv.tex
           pdflatex cv.tex
         continue-on-error: true
