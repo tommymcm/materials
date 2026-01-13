@@ -41,4 +41,4 @@ jobs:
           external_repository: tommymcm/tommymcm.github.io  # your pages repo
           publish_branch: gh-pages  # or gh-pages, depending on your setup
           publish_dir: ./_site  # Eleventy's default output directory
-          # cname: mcmichen.cc  # optional: if you have a custom domain
+          cname: mcmichen.cc  # optional: if you have a custom domain
