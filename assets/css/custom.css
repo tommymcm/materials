@@ -7,19 +7,19 @@
 
 /* Hyperlinks */
 a {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 h1 {
-  padding-top: 1.0em;
+    padding-top: 1.0em;
 }
 
 .sc {
-  font-variant: small-caps;
+    font-variant: small-caps;
 }
 
 /* Containers */
@@ -43,9 +43,9 @@ h1 {
 
 /* Blog post list */
 .posts-list {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 .post-item {
@@ -71,45 +71,92 @@ h1 {
 
 /* Prism overrides */
 pre[class*="language-"] {
-  margin: 1.5rem 0;
-  padding: 1rem;
-  border-radius: 0.5em;
-  border: 1px solid #000000;
-  font-size: 0.9em;
+    margin: 1.5rem 0;
+    padding: 1rem;
+    border-radius: 0.5em;
+    border: 1px solid #000000;
+    font-size: 0.9em;
 }
 
 pre[class*="language-"],
 code[class*="language-"] {
-  font-size: 0.9em;
+    font-size: 0.9em;
 }
 
 /* Inline code */
 :not(pre) > code {
-  padding: 0.1em 0.3em;
-  border-radius: 1em;
+    padding: 0.1em 0.3em;
+    border-radius: 1em;
 }
 
 /* Navbar */
 .sticky-top {
-  position: sticky;
-  top: 0;
-  background-color: inherit; /* or your preferred background */
-  z-index: 100; /* ensures it stays above other content */
+    position: sticky;
+    top: 0;
+    background-color: inherit; /* or your preferred background */
+    z-index: 100; /* ensures it stays above other content */
 }
 
-.sticky-top nav {
-  display: flex;
-  justify-content: center;
-  gap: 2rem; /* spacing between nav items */
+/* Reformat summary menu */
+summary {
+    /* Standard way (works in Firefox, Chrome, Edge) */
+    list-style: none;
+}
+
+summary::marker {
+    /* Alternative standard way for modern browsers (use content: "" to hide) */
+    content: none;
+}
+
+summary::-webkit-details-marker {
+    /* For Safari */
+    display: none;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    details {
+        display: block;
+    }
+
+    .desktop-nav {
+        display: none;
+    }
+    
+    nav {
+        display: flex;
+        justify-content: left;
+        flex-direction: column;
+        gap: 0rem;
+        padding: 0;
+    }
+}
+
+/* Desktop styles */
+@media (min-width: 769px) {
+    details {
+        display: none;
+    }
+    
+    .desktop-nav {
+        display: block;
+    }
+
+    nav {
+        display: flex;
+        justify-content: center;
+        gap: 2rem; /* spacing between nav items */
+    }
+
 }
 
 .nav-item{
-  font-size: 1.2em;
-  padding: 0 0.5rem;
+    font-size: 1.2em;
+    padding: 0 0.5rem;
 }
 
 /* List */
 ul {
-  list-style: none;
-  padding-left: 0;
+    list-style: none;
+    padding-left: 0;
 }
