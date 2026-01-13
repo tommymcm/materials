@@ -147,9 +147,9 @@ $\bullet$ {{bullet | texEscape | safe}} \\
 \noindent{\large \bf \textsc{Teaching Experience}}
 \vspace{0.5em}
 
-{%- for teach in teaching -%}
-{%raw%}\textbf{{%endraw%}{{teach.role}}}, {\em {{teach.name | texEscape | safe}}}{%if teach.instructor%}, {{teach.instructor}}{%endif%}. \hfill {{teach.date}} \\
-{%- endfor -%}
+{% for teach in teaching %}
+{%raw%}\textbf{{%endraw%}{{teach.role}}}, {\em {{teach.name | texEscape | safe}}}{%if teach.instructor%}, {{teach.instructor}}{%endif%}. \hfill {{teach.date}}
+{% endfor %}
 
     
 \vspace{1em}
