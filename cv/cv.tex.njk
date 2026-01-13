@@ -146,7 +146,6 @@ $\bullet$ {{bullet | texEscape | safe}} \\
 
 \noindent{\large \bf \textsc{Teaching Experience}}
 \vspace{0.5em}
-\\
 
 {%- for teach in teaching -%}
 {%raw%}\textbf{{%endraw%}{{teach.role}}}, {\em {{teach.name | texEscape | safe}}}{%if teach.instructor%}, {{teach.instructor}}{%endif%}. \hfill {{teach.date}} \\
@@ -160,11 +159,10 @@ $\bullet$ {{bullet | texEscape | safe}} \\
 
 \noindent{\large \bf \textsc{Service}}
 \vspace{0.5em}
-\\
 
-{%- for serve in service -%}
-{%raw%}\textbf{{%endraw%}{{serve.role}}}, {{serve.org}}. \hfill {{serve.date}} \\
-{%- endfor -%}
+{% for serve in service %}
+{%raw%}\textbf{{%endraw%}{{serve.role}}}, {{serve.org}}. \hfill {{serve.date}}
+{% endfor %}
 
 \vspace{1em}
 \hrule
@@ -173,11 +171,10 @@ $\bullet$ {{bullet | texEscape | safe}} \\
 
 \noindent{\large \bf \textsc{Funding and Awards}}
 \vspace{0.5em}
-\\
 
-{%- for fund in funding -%}
-{{fund.award | texEscape | safe}}{%if fund.event%}, {\em {{fund.event | texEscape | safe}}}{%endif%}. \hfill {{fund.year}} \\
-  {%- endfor -%}
+{% for fund in funding %}
+{{fund.award | texEscape | safe}}{%if fund.event%}, {\em {{fund.event | texEscape | safe}}}{%endif%}. \hfill {{fund.year}}
+{% endfor %}
 
     
 \vspace{1em}
@@ -188,11 +185,10 @@ $\bullet$ {{bullet | texEscape | safe}} \\
 
 \noindent{\large \bf \textsc{Research Advising}}
 \vspace{0.5em}
-\\
 
-{%- for student in advising -%}
-  {{student.name | texEscape | safe}}, {{student.degree | texEscape | safe}}, {\em {{student.topic | texEscape | safe}}}. \hfill {{student.start}} -- {% if student.end %}{{student.end}}{% else %}Present{%endif%} \\
-  {%- endfor -%}
+{% for student in advising %}
+  {{student.name | texEscape | safe}}, {{student.degree | texEscape | safe}}, {\em {{student.topic | safe}}}. \hfill {{student.start}} -- {% if student.end %}{{student.end}}{% else %}Present{%endif%}
+{% endfor %}
 
 
 \end{document}
