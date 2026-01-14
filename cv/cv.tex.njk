@@ -161,7 +161,7 @@ $\bullet$ {{bullet | texEscape | safe}} \\
 \vspace{0.5em}
 
 {% for serve in service %}
-{%raw%}\textbf{{%endraw%}{{serve.role}}}, {{serve.org}}. \hfill {{serve.date}}
+{%raw%}\textbf{{%endraw%}{{serve.role}}}, {{serve.org}}. \hfill {{serve.date}}{%if serve.end%} -- {{serve.end}}{%endif%}
 {% endfor %}
 
 \vspace{1em}

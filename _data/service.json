@@ -11,12 +11,12 @@
   { "role": "Member",
     "org": "CS Ph.D. Orientation Planning Committee, Northwestern University",
     "date": "2022",
-    "end": 2024
+    "end": "2025"
   },
   { "role": "Member",
     "org": "CS Ph.D. Visit Day Planning Committee, Northwestern University",
-    "date": 2022,
-    "end": 2024
+    "date": "2022",
+    "end": "2026"
   },
   { "role": "Student Volunteer",
     "org": "International Symposium on Microarchitecture (MICRO)",
