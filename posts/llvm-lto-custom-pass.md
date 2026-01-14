@@ -2,6 +2,7 @@
 layout: layouts/post.njk
 title: Running Out-of-Tree LLVM Passes at LTO
 date: 2026-01-14
+published: true
 desc: How to run out-of-tree LLVM passes at LTO using clang
 tags:
   - posts
