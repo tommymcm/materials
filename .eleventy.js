@@ -14,6 +14,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(rss);
   
   // Copy static assets
+  eleventyConfig.addPassthroughCopy("robots.txt");
   eleventyConfig.addPassthroughCopy("files");  
   eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.addPassthroughCopy({
