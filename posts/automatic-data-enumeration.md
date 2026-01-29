@@ -1,8 +1,8 @@
 ---
 layout: layouts/post.njk
 title: Automatic Data Enumeration for Fast Collections
-date: 2026-01-27
-published: false
+date: 2026-01-29
+published: true
 desc: Accelerating program with associative collections with automatic data enumeration
 tags:
   - posts
@@ -126,10 +126,14 @@ for item in items:
         
 ```
 
-There are more optimization, with full details available in the [paper](/files/papers/ADE_CGO_2026.pdf).
+There are more optimization, with full details available in Section 3 of the [paper](/files/papers/ADE_CGO_2026.pdf).
 
 ### Evaluation
-So that's all great, but how about the performance results?
+So that's all great, but how about the performance?
+In short, ADE provides significant performance improvements in the majority of our benchmarks.
+While ADE incurs an increase in memory usage for a few cases, we find that the majority of benchmarks experience no memory explosion, with some seeing significant memory savings!
+For a more detailed evaluation on both Intel and ARM machines, along with comparisons to Abseil swiss tables, see Section 5 of the [paper](/files/papers/ADE_CGO_2026.pdf).
+
 
 <figure>
 <img src="/assets/images/ADE-speedup-Intel.png" loading="lazy">
@@ -142,17 +146,26 @@ So that's all great, but how about the performance results?
 <figcaption>Maximum resident set size of ADE over std::unordered_set.</figcaption>
 </figure>
 
-Choosing an implementation for each collection is a critical decision, with performance, memory and energy tradeoffs that need to be balanced for each use case. 
-Specialized implementations offer significant benefits over their general-purpose counterparts, but also require certain properties of the data they store, such as uniqueness or ordering.
-To employ them, developers must either possess domain knowledge or transform their data to exhibit the desired property, which is a tedious, manual process.
-One such transformation—commonly used in data mining and program analysis—is data enumeration, where data items are assigned unique identifiers to enable fast equality checks and compact memory layout.
-In this paper, we present an automated approach to data enumeration, eliminating the need for manual developer effort.
-Our implementation in the MEMOIR compiler achieves speedups of 2.16× on average (up to 8.72×) and reduces peak memory consumption by 5.6% on average (up to 50.7%).
-This work shows that automated techniques can manufacture data properties to unlock specialized collection implementations, pushing the envelope of collection-oriented optimization.
+### Tuning
+In addition to fully automatic ADE, we provide ways for users to guide the optimization.
+This lets you enable/disable enumeration for a collection, and prevent/force sharing between collections.
+By overriding the static cost model, users can fine tune data enumeration for their specific application.
 
+We did a brief case study for LLVM Andersen-style points-to analysis (PTA).
+In short, we identified a case where sharing with a specific collection was detrimental to performance.
+The full details and exploration are in Section 5, RQ4 of the [paper](/files/papers/ADE_CGO_2026.pdf).
+
+By injecting a single `noshare` directive, ADE achieved a speedup of *78x* (13.7x over fully automatic ADE).
+In addition to the performance gains, memory usage (max resident set size) was reduced by *71%* (compared to 49% reduction with fully automatic ADE).
+
+### Conclusion
+Automatic Data Enumeration provides a fully automatic, transparent solution to one class of memory optimization in the compiler.
+With ADE we are able to achieve significant performance improvements without the need for developer input, though tuning can unlock further savings.
+Thanks to MEMOIR, the [implementation](https://github.com/arcana-lab/memoir) is straightforward (and *fun!*).
+I believe that data enumeration is just one of many memory optimizations that can be automated by the compiler, and I hope for a future where developers can trust the compiler to handle most of them.
 
 ### Further Reading
-For more information, see the paper:
+For more information, see the [paper](/files/papers/ADE_CGO_2026.pdf):
 ```tex
 @inproceedings{MEMOIR-ADE:McMichen_Campanoni:2026,
     title={Automatic Data Enumeration for Fast Collections},
@@ -161,3 +174,5 @@ For more information, see the paper:
     year={2026},
 }
 ```
+
+To see how we implemented ADE in the MEMOIR compiler, see the [open-source repository](https://github.com/arcana-lab/memoir).
