@@ -75,12 +75,13 @@ pre[class*="language-"] {
     padding: 1rem;
     border-radius: 0.5em;
     border: 1px solid #000000;
-    font-size: 0.9em;
+    font-size: 0.95em;
 }
 
 pre[class*="language-"],
 code[class*="language-"] {
-    font-size: 0.9em;
+    font-size: 0.95em;
+    font-family: "Cascadia Mono";
 }
 
 /* Inline code */

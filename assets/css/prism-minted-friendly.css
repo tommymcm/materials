@@ -8,7 +8,7 @@ pre[class*="language-"] {
   color: #333333;
   background: #f0f0f0;
   text-shadow: none;
-  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-family: "Cascadia Mono", Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   font-size: 1em;
   line-height: 1.5;
   letter-spacing: normal;
@@ -57,7 +57,8 @@ pre[class*="language-"] {
 
 /* Comments */
 .token.comment {
-  color: #aa5500;
+    color: #aa5500;
+    font-style: italic;
 }
 
 .token.prolog,
