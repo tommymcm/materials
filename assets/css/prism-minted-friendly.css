@@ -1,0 +1,198 @@
+/**
+ * Prism theme based on LaTeX minted "friendly" theme
+ * Friendly colors with good contrast for readability
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333333;
+  background: #f0f0f0;
+  text-shadow: none;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-size: 1em;
+  line-height: 1.5;
+  letter-spacing: normal;
+  word-break: normal;
+  word-spacing: normal;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  tab-size: 4;
+  hyphens: none;
+}
+
+pre[class*="language-"] {
+  background: #f0f0f0;
+  border: 1px solid #d0d0d0;
+  border-radius: 0.3em;
+  padding: 1em;
+  margin: 0.5em 0;
+  overflow: auto;
+}
+
+:not(pre) > code[class*="language-"] {
+  background: #f0f0f0;
+  border-radius: 0.3em;
+  padding: 0.15em 0.3em;
+  white-space: normal;
+}
+
+/* Keywords - bold */
+.token.keyword {
+  color: #0066aa;
+  font-weight: bold;
+}
+
+/* Built-in functions */
+.token.builtin {
+  color: #0066aa;
+  font-weight: bold;
+}
+
+/* Class names */
+.token.class-name {
+  color: #0066aa;
+  font-weight: bold;
+}
+
+/* Comments */
+.token.comment {
+  color: #aa5500;
+}
+
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #aa5500;
+}
+
+/* Strings */
+.token.string {
+  color: #009900;
+}
+
+.token.char {
+  color: #009900;
+}
+
+/* Numbers */
+.token.number {
+  color: #0099ff;
+}
+
+/* Operators */
+.token.operator {
+    color: #333333;
+    background: inherit;
+}
+
+.token.entity,
+.token.url,
+.language-css .token.string {
+  color: #009900;
+}
+
+/* Selectors */
+.token.selector {
+  color: #0066aa;
+  font-weight: bold;
+}
+
+/* Properties */
+.token.property {
+  color: #0066aa;
+  font-weight: bold;
+}
+
+.token.punctuation {
+  color: #333333;
+}
+
+/* Attributes */
+.token.attr-name {
+  color: #0066aa;
+  font-weight: bold;
+}
+
+.token.attr-value {
+  color: #009900;
+}
+
+.token.tag {
+  color: #0066aa;
+  font-weight: bold;
+}
+
+/* Functions */
+.token.function {
+  color: #0066aa;
+  font-weight: bold;
+}
+
+.token.function-variable {
+  color: #333333;
+}
+
+/* Namespace */
+.token.namespace {
+  color: #999999;
+}
+
+/* Regex */
+.token.regex {
+  color: #009900;
+}
+
+/* Important */
+.token.important,
+.token.variable {
+  color: #0066aa;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.deleted {
+  color: #d40000;
+  background-color: #ffd6d6;
+}
+
+.token.inserted {
+  color: #009900;
+  background-color: #d6f6d6;
+}
+
+/* Language-specific tokens */
+.language-bash .token.shebang {
+  color: #aa5500;
+}
+
+.language-bash .token.function {
+  color: #0066aa;
+  font-weight: bold;
+}
+
+.language-python .token.decorator {
+  color: #0066aa;
+  font-weight: bold;
+}
+
+/* Line numbers plugin support */
+.line-numbers .line-numbers-rows {
+  border-right-color: #d0d0d0;
+  color: #999999;
+}
+
+.line-numbers code {
+  padding-left: 0;
+}
+
+.line-highlight {
+  background: rgba(255, 255, 0, 0.2);
+  border-left: 4px solid #ffff00;
+}
