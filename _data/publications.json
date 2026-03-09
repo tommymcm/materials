@@ -1,5 +1,19 @@
 [
   {
+    "title": "AI Coding Agents Need Better Compiler Remarks",
+    "authors": ["Akash Deo", "Simone Campanoni", "Tommy McMichen"],
+    "venue": {
+      "name": "Workshop on Co-Design for Agentic and Multimodal AI",
+      "abbr": "CoDAIM"
+    },
+    "year": 2026,
+    "pdf": "/files/papers/CANARY_CoDAIM_2026.pdf",
+    "doi": "XXX",
+    "abstract": "Modern AI agents optimize programs by refactoring source code to trigger trusted compiler transformations. This preserves program semantics and reduces source code pollution, making the program easier to maintain and portable across architectures. However, this collaborative workflow is limited by legacy compiler interfaces, which obscure analysis behind unstructured, lossy optimization remarks that have been designed for human intuition rather than machine logic. Using the TSVC benchmark, we evaluate the efficacy of existing optimization feedback. We find that while precise remarks provide actionable feedback (3.3x success rate), ambiguous remarks are actively detrimental, triggering semantic-breaking hallucinations. By replacing ambiguous remarks with precise ones, we show that structured, precise analysis information unlocks the capabilities of small models, proving that the bottleneck is the interface, not the agent. We conclude that future compilers must expose structured, actionable feedback designed specifically for the future of autonomous performance engineering.",
+    "tags": ["compilers", "ai+compilers", "llm", "performance engineering"],
+    "projects": ["birdbrain"]
+  },
+  {
     "title": "Automatic Data Enumeration for Fast Data Collections",
     "authors": ["Tommy McMichen", "Simone Campanoni"],
     "venue": {
