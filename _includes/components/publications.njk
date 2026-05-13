@@ -10,7 +10,6 @@
 {%- endif -%}
 
 {% for pub in filteredPubs | sortByYear %}
-
 <font size=4em><b>{{pub.title}}</b></font>
 
 <div class="badge-container">
@@ -29,6 +28,5 @@
 {%- endif -%}
 </div>
 {{ pub.authors | formatAuthors | safe }}.
-<br>
-<br>
+<br><br>
 {% endfor %}
