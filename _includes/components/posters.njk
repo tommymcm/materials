@@ -1,0 +1,28 @@
+{%- if projectName -%}
+  {%- set filteredPosters = [] -%}
+  {%- for poster in posters -%}
+    {%- if poster.projects and (projectName in poster.projects) -%}
+      {%- set filteredPosters = (filteredPosters.push(poster), filteredPosters) -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- else -%}
+  {%- set filteredPosters = posters -%}
+{%- endif -%}
+
+{% for poster in filteredPosters | sortByYear %}
+
+<font size=4em><b>{{poster.title}}</b></font>
+{%- for venue in poster.venues | sortByYear | reverse -%}
+<br>
+{%- if venue.url -%}<a href="{{ venue.url }}">{%- endif -%}
+<i>{{ venue.location }}</i>, {{ venue.date }}.
+{%- if venue.url -%}</a>{%- endif -%}
+{%- endfor -%}
+<br>
+{{ poster.authors | formatAuthors | safe }}.
+{%- if poster.pdf -%}
+  <a href="{{ poster.pdf }}" download>[PDF]</a>
+{%- endif -%}
+<br>
+<br>
+{% endfor %}
