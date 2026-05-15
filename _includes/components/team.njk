@@ -1,0 +1,22 @@
+{%- if projectName -%}
+  {%- set filteredMembers = [] -%}
+  {%- for member in team -%}
+    {%- if member.projects and (projectName in member.projects) -%}
+      {%- set filteredMembers = (filteredMembers.push(member), filteredMembers) -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- else -%}
+  {%- set filteredMembers = members -%}
+{%- endif -%}
+
+{% for member in filteredMembers %}
+
+{%- if member.url -%}<a href="{{ member.url }}">{%- endif -%}
+<b>{{member.name}}</b>
+{%- if member.url -%}</a>{%- endif -%}
+&nbsp;&mdash;&nbsp;{{member.role}}
+
+
+<br>
+
+{% endfor %}

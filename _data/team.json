@@ -1,0 +1,28 @@
+[
+  { "name": "Tommy McMichen",
+    "url": "https://mcmichen.cc",
+    "projects": ["memoir", "birdbrain"],
+    "role": "Project Lead"
+  },
+  { "name": "Yian Su",
+    "url": "https://yiansu.github.io",
+    "projects": ["memoir"],
+    "role": "Graduate Student"
+  },
+  { "name": "Akash Deo",
+    "url": "https://akashdeo.dev",
+    "image": "/assets/images/team/akash-deo.jpg",
+    "projects": ["birdbrain"],
+    "role": "Masters Student"
+  },
+  { "name": "Benjamin Ye",
+    "url": "https://golf0ned.com",
+    "projects": ["birdbrain", "memoir"],
+    "role": "Masters Student"
+  },
+  { "name": "Leyla Latifova",
+    "url": "https://linkedin.com/in/leyla-latifova",
+    "projects": ["birdbrain"],
+    "role": "Undergraduate Student"
+  }
+]
