@@ -1,4 +1,9 @@
 [
+  { "name": "Simone Campanoni",
+    "url": "https://users.cs.northwestern.edu/~simonec",
+    "projects": ["memoir"],
+    "role": "Faculty"
+  },
   { "name": "Tommy McMichen",
     "url": "https://mcmichen.cc",
     "projects": ["memoir", "birdbrain"],
