@@ -1,0 +1,19 @@
+---
+layout: layouts/page.njk
+title: Games
+eleventyExcludeFromCollections: true
+---
+
+<div class="posts-list">
+  <ul>
+    {% for game in collections.games %}
+
+    <div class="post-item">
+      <a href="{{ game.url }}" class="post-title">
+        {{ game.data.title }}
+      </a>
+    </div>
+
+    {% endfor %}
+  </ul>
+</div>
