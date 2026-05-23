@@ -1,32 +1,36 @@
-<header class="sticky-top">
-  <details>
-    <summary>
-      <font size="4em">
-        ☰
-      </font>
-    </summary>
-    <nav>
-      <a href="/" class="nav-item">Home</a>
-      <a href="/research/" class="nav-item">Research</a>
-      <a href="/cv/" class="nav-item">C/V</a>
-      <!-- <a href="/talks/" class="nav-item">Talks</a> -->
-      <!-- <a href="/teaching/" class="nav-item">Teaching</a> -->
-      <a href="/posts/" class="nav-item">Blog</a>
-      <a href="/memoir" class="nav-item">MEMOIR</a>
-      <a href="/birdbrain" class="nav-item">Birdbrain</a>
-    </nav>
-  </details>
+{% set highlights = [
+  "#a0cbe8", "#ffbe7d", "#ff9d9a", "#86bcb6",
+  "#8cd17d", "#f1ce63", "#d4a6c8", "#fabfd2"
+] %}
 
-  <center>
-    <nav class="desktop-nav">
-      <a href="/" class="nav-item">Home</a>
-      <a href="/research/" class="nav-item">Research</a>
-      <a href="/cv/" class="nav-item">C/V</a>
-      <!-- <a href="/talks/" class="nav-item">Talks</a> -->
-      <!-- <a href="/teaching/" class="nav-item">Teaching</a> -->
-      <a href="/posts/" class="nav-item">Blog</a>
-      <a href="/memoir" class="nav-item">MEMOIR</a>
-      <a href="/birdbrain" class="nav-item">Birdbrain</a>
-    </nav>      
+{% set navItems = [
+  ["Research", "/research/", "blue"],
+  ["C/V", "/cv/", "orange"],
+  ["Blog", "/posts/", "red"],
+  ["MEMOIR", "/memoir/", "green"],
+  ["Birdbrain", "/birdbrain/", "pink"]
+] %}
+
+<header>
+  <nav>
+    <ul>
+      <li>
+        <a href="/">
+          <strong>Tommy M<sup>c</sup>Michen</strong>
+        </a>
+      </li>
+    </ul>
+    <ul>
+      {% for name, link, color in navItems %}
+        <li>
+          <a href="{{link}}"
+             style="--highlight-color: var(--t-{{color}}); --highlight-color-light: var(--t-{{color}}-light);">
+            {{name}}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+
+    </nav>
   </center>
 </header>
