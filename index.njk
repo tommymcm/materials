@@ -1,0 +1,44 @@
+---
+layout: layouts/home.njk
+---
+
+<center>
+  <h1>Tommy M<sup>c</sup>Michen</h1>
+  <img src="/assets/images/personal_photo.jpg" class="home-photo"/>
+</center>
+
+<br>
+  
+<article>
+I am a Ph.D. candidate at Northwestern University with a B.S. in Computer Engineering and Computer Science from Rose-Hulman Institute of Technology. I study compilers, specifically the design of intermediate representations. My research aims to broaden the optimization space of compilers through intermediate representations that grant empowering degrees of freedom through strong guarantees. Currently, I focus on doing this for data collections (lists, sets, maps) using MEMOIR. I am broadly interested in static analysis, runtime system co-design, programming languages, and memory models.
+</article>
+
+<article>
+  <h2>Selected Publications</h2>
+
+  <hr />
+  
+  {% for pub in publications | sortByYear %}
+
+  {% if pub.selected %}
+
+  <details>
+    <summary>
+      <b>{{pub.title}}</b>
+    </summary>
+    <p>
+      <small>
+        <i>{{pub.authors | formatAuthors | safe}}</i>
+        <br>
+          {% if pub.abstract %}{{pub.abstract}}{% endif %}
+      </small
+    </p>  
+  </details>
+
+  <hr />
+  
+  {% endif %}
+
+  {% endfor %}
+</article>
+
