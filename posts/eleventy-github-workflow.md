@@ -13,16 +13,11 @@ tags:
 
 I recently moved my website from hand-written HTML over to [Eleventy](https://www.11ty.dev/).
 It's been really nice to work with, the transition process is smooth, and their template system is intuitive.
-I'm now able to generate all of my web content from a single source of JSON files!
-<label for="sn-1" class="sidenote-toggle sidenote-number"></label>
-<input type="checkbox" id="sn-1" class="sidenote-toggle" />
-<span class="sidenote">You can find the source code [here](https://www.github.com/tommymcm/materials).</span>
+I'm now able to generate all of my web content from a single source of JSON files! {% sidenote %}You can find the source code [here](https://www.github.com/tommymcm/materials){% endsidenote %}
 
 After finishing up my port, I was interested in automate the process of publishing changes, which is what this post is about.
 I originally did this work with two repos because I wanted to have the materials (unpublished papers, course materials, etc.) not be public.
-Since then, I moved over to a public repo to avoid hitting any GitHub Action limits<label for="sn-2" class="sidenote-toggle sidenote-number"></label>
-<input type="checkbox" id="sn-2" class="sidenote-toggle" />
-<span class="sidenote">I am a penny pincher.</span>
+Since then, I moved over to a public repo to avoid hitting any GitHub Action limits{% sidenote %}I am a penny pincher.{% endsidenote %}
 and use a private fork to hold uinpublished items.
 
 Here's the step-by-step process that I took:
