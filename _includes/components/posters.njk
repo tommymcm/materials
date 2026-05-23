@@ -28,4 +28,5 @@
     {%- if venue.url -%}</a>{%- endif -%}
   {%- endfor -%}
 </hgroup>
+{% if not loop.last %}<hr />{% endif %}
 {% endfor %}

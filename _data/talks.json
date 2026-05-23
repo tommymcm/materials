@@ -35,7 +35,6 @@
     "venues": [
       {
         "series": "LLVM Developers' Meeting",
-        "location": "Santa Clara, California",
         "date":"October  2025"
       }
     ]
