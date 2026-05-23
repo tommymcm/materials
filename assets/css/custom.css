@@ -8,8 +8,9 @@
 /* Home page */
 .home-photo {
     width: 30%;
-    border-radius: 50%;
-    box-shadow: 2px 2px 5px;
+    /* border-radius: 50%; */
+    border-radius: var(--pico-border-radius);
+    box-shadow: var(--pico-card-box-shadow);
 }
 
 /* Constrain article width */
@@ -28,13 +29,44 @@ header {
   /* text-align: center; */
 }
 
+@media (max-width: 768px) {
+main {
+    max-width: 100vw;
+    margin-inline: auto;
+    margin-right: 0vw;
+    margin-left: 0vw;
+    overflow: visible;
+}
+
+/* Header */
+header {
+    max-width: 90vw;
+    margin-inline: auto;
+}
+}
+
+/* Hyperlink */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    border-bottom: 4px solid var(--highlight-color, var(--t-orange));
+}
+
 /* Navbar */
+nav {
+    white-space: nowrap;
+}
+
 nav a {
     color: inherit;
     background-image: linear-gradient(transparent 85%, var(--highlight-color) 85%);
     background-size: 100% 100%;
     background-repeat: no-repeat;
     border-radius: 0;
+    border-bottom: none;
 }
 
 nav a:hover {
@@ -43,6 +75,13 @@ nav a:hover {
                                     var(--highlight-color-light) 85%,
                                     transparent 85%,
                                     var(--highlight-color) 85%);
+  
+  border-bottom: none;
+}
+
+/* Button */
+button a {
+    color: inherit;
 }
 
 
@@ -73,19 +112,6 @@ nav a:hover {
 }
 
 /* Hyperlinks */
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
-button a:hover {
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
 h1 {
     padding-top: 1.0em;
 }
@@ -108,6 +134,10 @@ h1 {
     font-size: 1em;
 }
 
+.badge-container a {
+    border-bottom: none;
+}
+
 .badge {
     height: 2em;
     width: auto;
@@ -117,23 +147,12 @@ h1 {
 .posts-list {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
 }
 
 .post-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.post-item:last-child {
-    border-bottom: none;
-}
-
-.post-item a {
-    text-decoration: none;
-    flex: 1;
-    /* font-size: 1.2em; */
 }
 
 .post-date {
