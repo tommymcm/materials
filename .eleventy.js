@@ -19,7 +19,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.addPassthroughCopy({
     // LaTeX.css
-    "node_modules/latex.css/style.css": "assets/css/latex.css/style.css",
+    "node_modules/@picocss/pico/css/pico.css": "assets/css/pico.css/style.css",
     // PrismJS
     "node_modules/prismjs/themes/prism.css": "assets/css/prismjs/prism.css",
     // "node_modules/prismjs/themes/prism.js": "assets/js/prismjs/prism.js"
