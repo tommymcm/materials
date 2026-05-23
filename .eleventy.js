@@ -158,7 +158,19 @@ module.exports = function(eleventyConfig) {
     return url.replace("https://", "www.").replace("http://", "www.");
   });
 
-// After build: compile LaTeX to PDF
+  // Sidenotes
+  const sidenoteCounters = new Map();
+  eleventyConfig.on('eleventy.before', () => {
+  sidenoteCounters.clear();
+});
+  eleventyConfig.addPairedShortcode("sidenote", (content) => {
+    const key = this.page?.url ?? "default";
+    const n = (sidenoteCounters.get(key) ?? 0) + 1;
+    sidenoteCounters.set(key, n);
+    return `<span class="sidenote-wrapper"><sup>${n}</sup><span class="sidenote"><sup>${n}</sup> ${content}</span></span>`;
+});
+
+  // After build: compile LaTeX to PDF
   eleventyConfig.on('eleventy.after', async () => {
     const texFile = path.join('_site', 'cv', 'cv.tex');
     const cvDir = path.join('_site', 'cv');
