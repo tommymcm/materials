@@ -1,3 +1,10 @@
+@import "fonts.css";
+@import "colors.css";
+
+:root {
+  --pico-font-family-sans-serif: "Atkinson Hyperlegible Next", sans-serif;
+}
+
 /* Home page */
 .home-photo {
     width: 30%;
@@ -5,8 +12,73 @@
     box-shadow: 2px 2px 5px;
 }
 
+/* Constrain article width */
+main {
+  max-width: 60vw;
+  margin-inline: auto;
+  margin-right: 20vw;
+  margin-left: 20vw;
+  overflow: visible;
+}
+
+/* Header */
+header {
+    max-width: 55vw;
+    margin-inline: auto;
+  /* text-align: center; */
+}
+
+/* Navbar */
+nav a {
+    color: inherit;
+    background-image: linear-gradient(transparent 85%, var(--highlight-color) 85%);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    border-radius: 0;
+}
+
+nav a:hover {
+  text-decoration: none;
+  background-image: linear-gradient(var(--highlight-color-light) 0%,
+                                    var(--highlight-color-light) 85%,
+                                    transparent 85%,
+                                    var(--highlight-color) 85%);
+}
+
+
+/* Sidenotes via absolute positioning in a relative wrapper */
+.sidenote {
+  float: right;
+  clear: right;
+  width: 18vw;
+  margin-right: calc(-20vw - 1ch);
+  font-size: 0.85rem;
+  color: var(--pico-muted-color);
+  text-align: left;
+}
+
+.sidenote-wrapper {
+  position: static; /* remove relative */
+}
+
+/* Collapse on mobile */
+@media (max-width: 768px) {
+  .sidenote {
+    position: static;
+    display: block;
+    border-left: 2px solid var(--pico-primary);
+    padding-left: 0.75rem;
+    margin: 0.5rem 0;
+  }
+}
+
 /* Hyperlinks */
 a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button a:hover {
     text-decoration: none;
 }
 
@@ -112,52 +184,4 @@ summary::marker {
 summary::-webkit-details-marker {
     /* For Safari */
     display: none;
-}
-
-/* Mobile styles */
-@media (max-width: 768px) {
-    details {
-        display: block;
-    }
-
-    .desktop-nav {
-        display: none;
-    }
-    
-    nav {
-        display: flex;
-        justify-content: left;
-        flex-direction: column;
-        gap: 0rem;
-        padding: 0;
-    }
-}
-
-/* Desktop styles */
-@media (min-width: 769px) {
-    details {
-        display: none;
-    }
-    
-    .desktop-nav {
-        display: block;
-    }
-
-    nav {
-        display: flex;
-        justify-content: center;
-        gap: 2rem; /* spacing between nav items */
-    }
-
-}
-
-.nav-item{
-    font-size: 1.2em;
-    padding: 0 0.5rem;
-}
-
-/* List */
-ul {
-    list-style: none;
-    padding-left: 0;
 }
