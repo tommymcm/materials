@@ -11,18 +11,21 @@
 
 {% for poster in filteredPosters | sortByYear %}
 
-<font size=4em><b>{{poster.title}}</b></font>
-{%- for venue in poster.venues | sortByYear | reverse -%}
-<br>
-{%- if venue.url -%}<a href="{{ venue.url }}">{%- endif -%}
-<i>{{ venue.location }}</i>, {{ venue.date }}.
-{%- if venue.url -%}</a>{%- endif -%}
-{%- endfor -%}
-<br>
-{{ poster.authors | formatAuthors | safe }}.
-{%- if poster.pdf -%}
+<hgroup>
+<h5><b>{{poster.title}}</b></h5>
+  {{ poster.authors | formatAuthors | safe }}.
+
+  {%- if poster.pdf -%}
   <a href="{{ poster.pdf }}" download>[PDF]</a>
-{%- endif -%}
-<br>
-<br>
+  {%- endif -%}
+
+  {%- for venue in poster.venues | sortByYear | reverse -%}
+    <br>
+    {%- if venue.url -%}<a href="{{ venue.url }}">{%- endif -%}
+    <small>
+      <i>{{ venue.location }}</i>, {{ venue.date }}.
+    </small>
+    {%- if venue.url -%}</a>{%- endif -%}
+  {%- endfor -%}
+</hgroup>
 {% endfor %}

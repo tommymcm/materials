@@ -10,10 +10,15 @@
 {%- endif -%}
 
 {% for pub in filteredPubs | sortByYear %}
-<font size=4em><b>{{pub.title}}</b></font>
+<hgroup>
+<h5><b>{{pub.title}}</b></h5>
 
 <div class="badge-container">
-<a href="{{ pub.venue.link }}"><i>{{ pub.venue.abbr }} {{ pub.year }}</i></a>
+<a href="{{ pub.venue.link }}">
+  <i>
+    {{ pub.venue.abbr }} {{ pub.year }}
+  </i>
+</a>
 {% if pub.pdf %} | <a href="{{ pub.pdf }}" download>PDF</a>{% endif %}
 {% if pub.doi %} | <a href="https://doi.org/{{pub.doi}}">DOI</a>{% endif %}
 {%- if pub.artifact -%}
@@ -28,5 +33,5 @@
 {%- endif -%}
 </div>
 {{ pub.authors | formatAuthors | safe }}.
-<br><br>
+</hgroup>
 {% endfor %}
