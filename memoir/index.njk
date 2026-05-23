@@ -4,30 +4,45 @@ title: MEMOIR
 projectName: memoir
 ---
 
-<h1>{{title}}</h1>
+<article>
+  <center>
+    <h1>{{title}}</h1>
+  </center>
 
-<p>
-MEMOIR is a compiler intermediate representation for data collections (list, set, map).
+  <article>
+    <p>
+      MEMOIR is a compiler intermediate representation for data collections (list, set, map).
 MEMOIR is in single static assignment (SSA) form, making static analysis both simple and cheap to compute.
 By decoupling the logical organization of data from its memory layout, MEMOIR enables the compiler to perform novel memory optimizations.
-</p>
+    </p>
+  </article>
 
-<h2>Team Members</h2>
-{% include "components/team.njk" %}
+  <article>
+    <h2>Team Members</h2>
+    {% include "components/team.njk" %}
+  </article>
 
-<h2>Learn More</h2>
-<p>
-Interested in learning more?
+  <article>
+    <h2>Learn More</h2>
+    <p>
+      Interested in learning more?
 Check out the <a href="https://github.com/arcana-lab/memoir">open-source compiler</a>.
-</p>
-
-<p>
-Want more details?
+    </p>
+  
+    <p>
+      Want more details?
 Check out the <a href="/memoir-docs">getting started guide</a>, or the <a href="/memoir-doxygen">documentation</a>.
-</p>
+    </p>
+  </article>
 
-<h2>Publications</h2>
-{% include "components/publications.njk" %}
+  <article>
+    <h2>Publications</h2>
+    {% include "components/publications.njk" %}
+  </article>
 
-<h2>Posters</h2>
-{% include "components/posters.njk" %}
+  <article>
+    <h2>Posters</h2>
+    {% include "components/posters.njk" %}
+  </article>
+
+</article>

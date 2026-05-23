@@ -1,30 +1,43 @@
 ---
-layout: layouts/page.njk
+layout: layouts/base.njk
 title: Blog
 eleventyExcludeFromCollections: true
 ---
 
-<center>
-  <font size="4em">
-  Follow the <a href="/feed.xml">RSS Feed</a>.
-  </font>
-</center>
+<article>
+  <center>
+    <hgroup>
+      <h1>
+        Blog
+      </h1>
+  
+      <p>
+        <a href="/feed.xml">
+          Follow the RSS Feed.
+        </a>
+      </p>
+    </hgroup>
+  </center>
 
-<div class="posts-list">
-  <ul>
-    {% for post in collections.publishedPosts %}
-
-    <div class="post-item">
-      <a href="{{ post.url }}" class="post-title">
-        {{ post.data.title }}
-      </a>
-      <span class="post-date">
-        <time datetime="{{ post.date | dateFormat("yyyy-MM-dd") }}">
-          {{ post.date | dateFormat("MMMM d, yyyy") }}
-        </time>
-      </span>
+  <article>
+    <div class="posts-list">
+      <ul>
+        {%- for post in collections.publishedPosts -%}
+        <div class="post-item">
+          <span>
+            <a href="{{ post.url }}" class="post-title">
+              <b>{{ post.data.title }}</b>
+            </a>
+          </span>
+          <span class="post-date">
+            <time datetime="{{ post.date | dateFormat("yyyy-MM-dd") }}">
+              {{ post.date | dateFormat("MMMM d, yyyy") }}
+            </time>
+          </span>
+        </div>
+        {%- if not loop.last -%}<hr />{%- endif -%}
+        {%- endfor -%}
+      </ul>
     </div>
-
-    {% endfor %}
-  </ul>
-</div>
+  </article>
+</article>
