@@ -10,13 +10,17 @@ title: Projects
   {% for project in collections.projects %}
 
   <article>
-    <a href="{{project.url}}">
-      <h3>{{project.data.title}}</h3>
-    </a>
+    <h3>
+      <a href="{{project.url}}">
+        {{project.data.title}}
+      </a>
+    </h3>
+
     <p>
       {{project.data.description}}
     </p>
   </article>
+  
   {% endfor %}
 
 </div>
