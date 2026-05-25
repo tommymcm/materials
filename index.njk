@@ -1,16 +1,33 @@
 ---
-layout: layouts/home.njk
+layout: layouts/base.njk
 ---
 
-<center>
-  <h1>Tommy M<sup>c</sup>Michen</h1>
+<div style="display: flex; align-items: left; gap: 5%;">
   <img src="/assets/images/personal_photo.jpg" class="home-photo"/>
-</center>
+  <hgroup>
+    <h1>Tommy M<sup>c</sup>Michen</h1>
+    <h5>Ph.D. Candidate</h5>
+    <h5>Northwestern University</h5>
+    <div style="margin-top: 0.25rem;"></div>
+    <h6>
+      <a href="mailto:mcmichen@u.northwestern.edu">
+        <i>mcmichen@u.northwestern.edu</i>
+      </a>
+    </h6>
+    <div style="margin-top: 0.5rem;"></div>
+    <h6>
+      <a href="https://calendar.app.google/VtP2qCsigNoXgLmA7">
+        <i>Schedule a meeting</i>
+      </a>
+    </h6>
+    <span></span>
+  </hgroup>
+</div>
 
 <br>
   
 <article>
-I am a Ph.D. candidate at Northwestern University with a B.S. in Computer Engineering and Computer Science from Rose-Hulman Institute of Technology. I study compilers, specifically the design of intermediate representations. My research aims to broaden the optimization space of compilers through intermediate representations that grant empowering degrees of freedom through strong guarantees. Currently, I focus on doing this for data collections (lists, sets, maps) using MEMOIR. I am broadly interested in static analysis, runtime system co-design, programming languages, and memory models.
+  I am a Ph.D. candidate at Northwestern University with a B.S. in Computer Engineering and Computer Science from Rose-Hulman Institute of Technology. I study compilers, specifically the design of intermediate representations. My research aims to broaden the optimization space of compilers through intermediate representations that grant empowering degrees of freedom through strong guarantees. Currently, I focus on doing this for data collections (lists, sets, maps) using MEMOIR. I am broadly interested in static analysis, runtime system co-design, programming languages, and memory models.
 </article>
 
 <article>
@@ -40,5 +57,42 @@ I am a Ph.D. candidate at Northwestern University with a B.S. in Computer Engine
   {% endif %}
 
   {% endfor %}
+</article>
+
+<article>
+  <h2>Find me online</h2>
+
+  <div class="grid">
+    <article>
+      <center>
+        <h4>
+          <a href="https://github.com/tommymcm" target="_blank">
+            GitHub
+          </a>
+        </h4>
+      </center>
+    </article>
+
+    <article>
+      <center>
+        <h4>
+          <a href="https://www.linkedin.com/in/tommy-mcmichen-57048a128" target="_blank">
+            LinkedIn
+          </a>
+        </h4>
+      </center> 
+    </article>
+
+    <article>
+      <center>
+        <h4>
+          <a rel="me" href="https://discuss.systems/@tommy" target="_blank">
+            Mastodon
+          </a>
+        </h4>
+      </center>
+    </article>
+  </div>
+  
 </article>
 

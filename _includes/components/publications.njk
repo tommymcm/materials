@@ -23,13 +23,11 @@
 {% if pub.doi %} | <a href="https://doi.org/{{pub.doi}}">DOI</a>{% endif %}
 {%- if pub.artifact -%}
 |
-<a href="https://doi.org/{{ pub.artifact.doi }}" target="_blank">
-<div class="badge-container">
+<div class="badges">
 {%- for badge in pub.artifact.badges -%}
 <img src="/assets/images/{{ badge }}.svg" alt="{{ badge }}" class="badge">
 {%- endfor -%}
 </div>
-</a>
 {%- endif -%}
 </div>
 {{ pub.authors | formatAuthors | safe }}.

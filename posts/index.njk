@@ -21,23 +21,23 @@ eleventyExcludeFromCollections: true
 
   <article>
     <div class="posts-list">
-      <ul>
         {%- for post in collections.publishedPosts -%}
         <div class="post-item">
-          <span>
+          <span class="post-title">
             <a href="{{ post.url }}" class="post-title">
               <b>{{ post.data.title }}</b>
             </a>
           </span>
           <span class="post-date">
-            <time datetime="{{ post.date | dateFormat("yyyy-MM-dd") }}">
-              {{ post.date | dateFormat("MMMM d, yyyy") }}
-            </time>
+            <small>
+              <time datetime="{{ post.date | dateFormat("yyyy-MM-dd") }}">
+                {{ post.date | dateFormat("MMMM d, yyyy") }}
+              </time>
+            </small>
           </span>
         </div>
         {%- if not loop.last -%}<hr />{%- endif -%}
         {%- endfor -%}
-      </ul>
     </div>
   </article>
 </article>

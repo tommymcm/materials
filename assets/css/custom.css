@@ -7,8 +7,9 @@
 
 /* Home page */
 .home-photo {
-    width: 30%;
-    /* border-radius: 50%; */
+    width: 25%;
+    margin-right: 0%;
+    margin-left: 5%;
     border-radius: var(--pico-border-radius);
     box-shadow: var(--pico-card-box-shadow);
 }
@@ -49,10 +50,13 @@ header {
 a {
     color: inherit;
     text-decoration: none;
+    padding-inline: 0.1em;
+    margin-inline: -0.1em;
+    border-bottom: 4px solid var(--highlight-color, var(--t-red));
 }
 
 a:hover {
-    border-bottom: 4px solid var(--highlight-color, var(--t-orange));
+    background-color: var(--highlight-color-light, var(--t-red-light));
 }
 
 /* Navbar */
@@ -62,20 +66,21 @@ nav {
 
 nav a {
     color: inherit;
-    background-image: linear-gradient(transparent 85%, var(--highlight-color) 85%);
+    /* background-image: linear-gradient(transparent 85%, var(--highlight-color) 85%); */
     background-size: 100% 100%;
     background-repeat: no-repeat;
     border-radius: 0;
-    border-bottom: none;
+    border-bottom-width: 8px;
+    padding-bottom: 4px;
 }
 
 nav a:hover {
   text-decoration: none;
-  background-image: linear-gradient(var(--highlight-color-light) 0%,
-                                    var(--highlight-color-light) 85%,
-                                    transparent 85%,
-                                    var(--highlight-color) 85%);
-  
+  background-color: var(--highlight-color-light);
+}
+
+nav ul li:only-child a {
+  background-image: none;
   border-bottom: none;
 }
 
@@ -83,7 +88,6 @@ nav a:hover {
 button a {
     color: inherit;
 }
-
 
 /* Sidenotes via absolute positioning in a relative wrapper */
 .sidenote {
@@ -134,7 +138,12 @@ h1 {
     font-size: 1em;
 }
 
-.badge-container a {
+.badges a {
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+    justify-content: left;
+    font-size: 1em;
     border-bottom: none;
 }
 
@@ -155,6 +164,10 @@ h1 {
     align-items: center;
 }
 
+.post-title {
+    width: 75%;
+}
+
 .post-date {
     /* font-size: 1.0em; */
     white-space: nowrap;
@@ -172,21 +185,13 @@ pre[class*="language-"] {
 pre[class*="language-"],
 code[class*="language-"] {
     font-size: 0.95em;
-    font-family: "Cascadia Mono";
+    font-family: "Atkinson Hyperlegible Mono";
 }
 
 /* Inline code */
 :not(pre) > code {
     padding: 0.1em 0.3em;
     border-radius: 1em;
-}
-
-/* Navbar */
-.sticky-top {
-    position: sticky;
-    top: 0;
-    background-color: inherit; /* or your preferred background */
-    z-index: 100; /* ensures it stays above other content */
 }
 
 /* Reformat summary menu */
