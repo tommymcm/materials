@@ -111,7 +111,12 @@ module.exports = function(eleventyConfig) {
     return collectionApi.getFilteredByTag("posts")
       .filter(post => post.data.published === true)
       .reverse();
-  });  
+  });
+
+  // Projects
+  eleventyConfig.addCollection("projects", (api) => {
+  return api.getFilteredByGlob("projects/*/index.njk");
+});
   
   // Sort publications by year
   eleventyConfig.addFilter("sortByYear", function(array) {
