@@ -7,6 +7,8 @@
 
 /* Home page */
 .home-photo {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
     width: 25%;
     margin-right: 0%;
     margin-left: 5%;
@@ -16,28 +18,50 @@
 
 /* Constrain article width */
 main {
-  max-width: 60vw;
-  margin-inline: auto;
-  margin-right: 20vw;
-  margin-left: 20vw;
-  overflow: visible;
+    margin-inline: auto;
+    overflow: visible;
 }
 
 /* Header */
 header {
-    max-width: 55vw;
     margin-inline: auto;
   /* text-align: center; */
 }
 
+@media (min-width: 1024px) {
+main {
+    max-width: 60vw;
+    margin-right: 20vw;
+    margin-left: 20vw;
+}
+
+header {
+    max-width: 55vw;
+}
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+main {
+    max-width: 78vw;
+    margin-right: 20vw;
+    margin-left: 2vw;
+}
+
+header {
+    max-width: 70vw;
+    margin-left: 5vw;
+    margin-right: 25vw
+}
+}
+
+
 @media (max-width: 768px) {
 main {
-    max-width: 100vw;
-    margin-inline: auto;
+    max-width: 100vw; 
     margin-right: 0vw;
     margin-left: 0vw;
-    overflow: visible;
 }
+
 
 /* Header */
 header {
