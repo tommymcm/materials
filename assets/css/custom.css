@@ -28,19 +28,22 @@ header {
   /* text-align: center; */
 }
 
-@media (min-width: 1024px) {
+
+@media (max-width: 768px) {
 main {
-    max-width: 60vw;
-    margin-right: 20vw;
-    margin-left: 20vw;
+    max-width: 100vw; 
+    margin-right: 0vw;
+    margin-left: 0vw;
 }
 
+/* Header */
 header {
-    max-width: 55vw;
+    max-width: 90vw;
+    margin-inline: auto;
 }
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1440px) {
 main {
     max-width: 78vw;
     margin-right: 20vw;
@@ -55,20 +58,18 @@ header {
 }
 
 
-@media (max-width: 768px) {
+@media (min-width: 1440px) {
 main {
-    max-width: 100vw; 
-    margin-right: 0vw;
-    margin-left: 0vw;
+    max-width: 60vw;
+    margin-right: 20vw;
+    margin-left: 20vw;
 }
 
-
-/* Header */
 header {
-    max-width: 90vw;
-    margin-inline: auto;
+    max-width: 55vw;
 }
 }
+
 
 /* Hyperlink */
 a {

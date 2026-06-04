@@ -5,19 +5,27 @@ title: Projects
 
 <br>
 
-<div class="grid">
+<div class="grid" style="grid-template-columns: repeat(2, 1fr);">
 
-  {% for project in collections.projects %}
+  {% for project in projects %}
 
   <article>
-    <h3>
-      <a href="{{project.url}}">
-        {{project.data.title}}
-      </a>
-    </h3>
+    <header>
+      <center>
+        <h3>  
+          <a href="{{project.url}}">
+            {{project.name}}
+          </a>
+        </h3>
+
+        {% if project.img %}
+        <img src="{{project.img}}" style="height: 120px; object-fit: contain;"></img>
+        {% endif %}
+      </center>
+    </header>
 
     <p>
-      {{project.data.description}}
+      {{project.desc}}
     </p>
   </article>
   

@@ -1,0 +1,24 @@
+[
+  {
+    "name": "Birdbrain",
+    "desc": "Building better programming language tools for coding agents.",
+    "url": "/projects/birdbrain",
+    "img": "/assets/images/birdbrain.png"
+  },
+  {
+    "name": "MEMOIR",
+    "desc": "Representing data collections in the compiler for analysis and optimization.",
+    "url": "/projects/memoir",
+    "img": "/assets/images/memoir.png"
+  },
+  {
+    "name": "Nifty",
+    "desc": "A collection of LLVM analyses, transforms and other utilities.",
+    "url": "https://github.com/tommymcm/nifty"
+  },
+  {
+    "name": "NOELLE",
+    "desc": "Abstractions for advanced LLVM analysis and transformation.",
+    "url": "https://github.com/arcana-lab/noelle"
+  }
+]
