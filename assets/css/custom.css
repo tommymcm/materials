@@ -234,3 +234,14 @@ summary::-webkit-details-marker {
     /* For Safari */
     display: none;
 }
+
+
+/* Mobile/desktop-only content */
+@media (min-width: 769px) {
+  .mobile-only  { display: none !important; }
+  .desktop-only { display: auto; }
+}
+@media (max-width: 768px) {
+  .mobile-only { display: auto; }
+  .desktop-only  { display: none !important; }
+}
