@@ -2,13 +2,13 @@
   {
     "name": "Birdbrain",
     "desc": "Building better programming language tools for coding agents.",
-    "url": "/projects/birdbrain",
+    "url": "/birdbrain/",
     "img": "/assets/images/birdbrain.png"
   },
   {
     "name": "MEMOIR",
     "desc": "Representing data collections in the compiler for analysis and optimization.",
-    "url": "/projects/memoir",
+    "url": "/memoir/",
     "img": "/assets/images/memoir.png"
   },
   {
