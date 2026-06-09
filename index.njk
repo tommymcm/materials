@@ -41,14 +41,27 @@ layout: layouts/base.njk
 
   <details>
     <summary>
-      <b>{{pub.title}}</b>
+      <h5 style="margin-bottom: 0.1rem;">{{pub.title}}</h5>
+      <div class="badge-container" style="margin-bottom: 0.1rem;">
+        <a href="{{ pub.venue.link }}">
+          <i>
+            {{ pub.venue.abbr }} {{ pub.year }}
+          </i>
+        </a>
+        {%- if pub.pdf -%}&nbsp;|&nbsp;<a href="{{ pub.pdf }}" download>PDF</a>{%- endif -%}
+        {%- if pub.doi -%}&nbsp;|&nbsp;<a href="https://doi.org/{{pub.doi}}">DOI</a>{%- endif -%}
+        {%- if pub.artifact -%}&nbsp;|&nbsp;
+        <span class="badges">
+          {%- for badge in pub.artifact.badges -%}
+          <img src="/assets/images/{{ badge }}.svg" alt="{{ badge }}" class="badge">
+          {%- endfor -%}
+        </span>
+        {%- endif -%}
+      </div>
+      <i>{{pub.authors | formatAuthors | safe}}</i>
     </summary>
     <p>
-      <small>
-        <i>{{pub.authors | formatAuthors | safe}}</i>
-        <br>
-          {% if pub.abstract %}{{pub.abstract}}{% endif %}
-      </small
+      {% if pub.abstract %}{{pub.abstract}}{% endif %}
     </p>  
   </details>
 
