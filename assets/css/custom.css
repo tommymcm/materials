@@ -2,7 +2,11 @@
 @import "colors.css";
 
 :root {
-  --pico-font-family-sans-serif: "Atkinson Hyperlegible Next", sans-serif;
+    --pico-font-family-sans-serif: "Atkinson Hyperlegible Next", sans-serif;
+}
+
+:root:not([data-theme="dark"]) {
+    --pico-primary-hover: #373c44;
 }
 
 /* Home page */
