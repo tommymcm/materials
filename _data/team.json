@@ -9,6 +9,11 @@
     "projects": ["memoir", "birdbrain"],
     "role": "Project Lead"
   },
+  { "name": "Federico Sossai",
+    "url": "https://fsossai.com",
+    "projects": ["memoir"],
+    "role": "Graduate Student"
+  },
   { "name": "Yian Su",
     "url": "https://yiansu.github.io",
     "projects": ["memoir"],
