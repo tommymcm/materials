@@ -169,11 +169,11 @@ $\bullet$ {{bullet | texEscape | safe}} \\
 \vspace{0.5em}
 % =========================================================
 
-\noindent{\large \bf \textsc{Funding and Awards}}
+\noindent{\large \bf \textsc{Awards and Funding}}
 \vspace{0.5em}
 
-{% for fund in funding %}
-{{fund.award | texEscape | safe}}{%if fund.event%}, {\em {{fund.event | texEscape | safe}}}{%endif%}. \hfill {{fund.year}}
+{% for award in awards %}
+{{award.award | texEscape | safe}}{%if award.event%}, {\em {{award.event | texEscape | safe}}}{%endif%}. \hfill {{award.year}}
 {% endfor %}
 
     

@@ -1,5 +1,15 @@
 [
   {
+    "award": "PhD Student Leadership Award",
+    "event": "Northwestern University -- CS Department",
+    "year": "2026"
+  },
+  {
+    "award": "PhD Student Research Award",
+    "event": "Northwestern University -- CS Department",
+    "year": "2026"
+  },
+  {
     "award": "LLVM Foundation Student Travel Grant",
     "event": "LLVM Developers' Meeting",
     "year": "2025"
