@@ -1,12 +1,21 @@
 [
+  { "role": "Student Volunteer",
+    "org": "Workshop on Advancing Theory, Research, and Practice for Generative AI in University-Level Computing Education",
+    "date": "2026"
+  },
   { "role": "Artifact Evaluation Committee",
     "org": "International Conference on Compiler Construction (CC)",
     "date": "2026"
   },
   { "role": "Board Member",
+    "org": "Computer Science PhD Advisory Council, Northwestern University",
+    "date": "2025",
+    "end": "2026"
+  },
+  { "role": "Board Member",
     "org": "Computer Science Social Initiative, Northwestern University",
     "date": "2021",
-    "end": "Present"
+    "end": "2026"
   },
   { "role": "Member",
     "org": "CS Ph.D. Orientation Planning Committee, Northwestern University",
