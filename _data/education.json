@@ -3,13 +3,13 @@
     "institution": "Northwestern University",
     "location": "Evanston, Illinois",
     "start": 2020,
-    "end": "Present",
+    "end": 2026,
     "degrees": [
       {
         "degree": "Ph.D.",
         "major": "Computer Science",
         "advisor": "Simone Campanoni",
-        "date": "(Expected 2026)"
+        "date": 2026
       },
       {
         "degree": "M.Sc.",
