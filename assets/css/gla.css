@@ -1,0 +1,314 @@
+/* ---------------------------------------------------------
+   Simple theme, in the style of darioamodei.com: a plain serif
+   column on a warm cream background, near-monochrome text and
+   links, no color accents. Loaded after pico.css to retheme its
+   components (grid, buttons, cards, nav) rather than replace
+   them, so existing pages keep working. Formerly split between
+   this file and custom.css; custom.css's rules now live here and
+   are no longer loaded separately.
+--------------------------------------------------------- */
+
+@import "fonts.css";
+
+:root {
+  --measure: 38rem;
+}
+
+:root:not([data-theme="dark"]) {
+  --pico-background-color: #f4e8d8;
+  --pico-color: #1f1e1d;
+  --pico-muted-color: #5e5d59;
+  --pico-muted-border-color: #ddd0ba;
+  --pico-border-color: #ddd0ba;
+
+  --pico-primary: #1f1e1d;
+  --pico-primary-background: #1f1e1d;
+  --pico-primary-hover: #5e5d59;
+  --pico-primary-hover-background: #1f1e1d;
+  --pico-primary-focus: rgba(31, 30, 29, 0.25);
+  --pico-primary-inverse: #f4e8d8;
+
+  --pico-contrast: #1f1e1d;
+  --pico-contrast-hover: #5e5d59;
+  --pico-contrast-focus: rgba(31, 30, 29, 0.25);
+  --pico-contrast-inverse: #f4e8d8;
+
+  --pico-h1-color: #1f1e1d;
+  --pico-h2-color: #1f1e1d;
+  --pico-h3-color: #1f1e1d;
+  --pico-h4-color: #1f1e1d;
+  --pico-h5-color: #1f1e1d;
+  --pico-h6-color: #1f1e1d;
+
+  --pico-card-background-color: #f4e8d8;
+  --pico-card-border-color: #ddd0ba;
+  --pico-card-box-shadow: none;
+  --pico-button-box-shadow: none;
+  --pico-button-hover-box-shadow: none;
+
+  --pico-form-element-background-color: #f4e8d8;
+  --pico-form-element-border-color: #ddd0ba;
+  --pico-form-element-color: #1f1e1d;
+
+  --pico-code-background-color: #ece0cc;
+  --pico-code-color: #5e5d59;
+}
+
+:root {
+  --pico-font-family-sans-serif: "Newsreader", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  --pico-font-family: var(--pico-font-family-sans-serif);
+  --pico-font-family-monospace: "PP Right Serif Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  --font-family-heading: "Young Serif", Georgia, serif;
+  --pico-font-weight: 400;
+  --pico-border-radius: 2px;
+  --pico-line-height: 1.6;
+  --pico-typography-spacing-vertical: 1.2rem;
+}
+
+/* Home page */
+.home-photo {
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  width: 25%;
+  margin-right: 0%;
+  margin-left: 5%;
+  border-radius: var(--pico-border-radius);
+  box-shadow: var(--pico-card-box-shadow);
+}
+
+/* Layout: constrain article width to a narrow, essay-like measure */
+main {
+  margin-inline: auto;
+  overflow: visible;
+}
+
+header {
+  margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+  main, header {
+    max-width: var(--measure);
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    max-width: 100vw;
+    margin-right: 0vw;
+    margin-left: 0vw;
+  }
+
+  header {
+    max-width: 90vw;
+    margin-inline: auto;
+  }
+}
+
+/* Headings: tighten line-height for a display feel. */
+h1, h2, h3, h4, h5, h6,
+article > header {
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+h1 {
+  font-family: var(--font-family-heading);
+  /* Young Serif only ships a 400 weight; 700 would just trigger
+     browser faux-bold, so use its real weight instead. */
+  font-weight: 400;
+  font-size: 2.4rem;
+  padding-top: 1.0em;
+}
+
+/* Keep <sup> from breaking link underlines into two segments. Pico
+   already raises <sup> via `position: relative` rather than
+   `vertical-align`, but browsers still paint text-decoration lines
+   per inline text fragment, so the raised glyph still gets its own
+   segment of underline. Making it an atomic inline box (inline-block)
+   fixes this: decoration lines are drawn straight through atomic
+   inline boxes at the ancestor's single baseline instead of
+   following the fragment's own shifted position. */
+sup {
+  display: inline-block;
+  vertical-align: baseline;
+  position: relative;
+  top: -0.4em;
+  font-size: 0.7em;
+}
+
+/* Links: simple, monochrome, underlined, no colored accents */
+a {
+  color: var(--pico-color);
+  text-decoration: underline wavy;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--pico-muted-border-color);
+  padding-inline: 0.1em;
+  margin-inline: -0.1em;
+}
+a:hover,
+a:focus {
+  color: var(--pico-muted-color);
+  text-decoration-color: currentColor;
+}
+
+button a {
+  color: inherit;
+}
+
+/* Nav: plain text links, no colorful per-item underline accents */
+nav {
+  white-space: nowrap;
+}
+
+nav a {
+  color: inherit;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline wavy;
+}
+
+/* Flatten buttons/inputs to match the plain, undecorated aesthetic */
+button, input[type="submit"], input[type="button"], [role="button"] {
+  box-shadow: none;
+}
+
+/* Tag filter buttons (research page): quiet outline style instead of
+   a solid color fill */
+.tag-btn {
+  background: transparent;
+  color: var(--pico-color);
+  border: 1px solid var(--pico-muted-border-color);
+}
+.tag-btn.active {
+  background: var(--pico-color);
+  color: var(--pico-background-color);
+  border-color: var(--pico-color);
+}
+
+/* Sidenotes via absolute positioning in a relative wrapper */
+.sidenote {
+  float: right;
+  clear: right;
+  width: 18vw;
+  margin-right: calc(-20vw - 1ch);
+  font-size: 0.85rem;
+  color: var(--pico-muted-color);
+  text-align: left;
+}
+
+.sidenote-wrapper {
+  position: static; /* remove relative */
+}
+
+/* Collapse on mobile */
+@media (max-width: 768px) {
+  .sidenote {
+    position: static;
+    display: block;
+    border-left: 2px solid var(--pico-primary);
+    padding-left: 0.75rem;
+    margin: 0.5rem 0;
+  }
+}
+
+.sc {
+  font-variant: small-caps;
+}
+
+/* Containers */
+.container {
+  display: flex;
+}
+
+/* Artifact badges */
+.badge-container {
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+  justify-content: left;
+  font-size: 1em;
+}
+
+.badges a {
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+  justify-content: left;
+  font-size: 1em;
+  border-bottom: none;
+}
+
+.badge {
+  height: 1.8em;
+  width: auto;
+}
+
+/* Blog post list */
+.posts-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.post-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.post-title {
+  width: 75%;
+}
+
+.post-date {
+  white-space: nowrap;
+}
+
+/* Prism overrides */
+pre[class*="language-"] {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  border-radius: 0.5em;
+  border: 1px solid var(--pico-muted-border-color);
+  font-size: 0.95em;
+}
+
+pre[class*="language-"],
+code[class*="language-"] {
+  font-size: 0.95em;
+  font-family: var(--pico-font-family-monospace);
+}
+
+/* Inline code */
+:not(pre) > code {
+  padding: 0.1em 0.3em;
+  border-radius: 1em;
+}
+
+/* Reformat summary menu */
+summary {
+  list-style: none;
+}
+
+summary::marker {
+  content: none;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Mobile/desktop-only content */
+@media (min-width: 769px) {
+  .mobile-only  { display: none !important; }
+  .desktop-only { display: auto; }
+}
+@media (max-width: 768px) {
+  .mobile-only { display: auto; }
+  .desktop-only  { display: none !important; }
+}
