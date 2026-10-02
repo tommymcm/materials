@@ -1,63 +1,59 @@
-/* Fonts */
+/* Newsreader (body text): a single variable file covers weights
+   200-800, so one @font-face per style with a weight range is
+   enough for the whole regular/bold spectrum. */
 @font-face {
-  font-family: "Atkinson Hyperlegible Next";
-  src: url("/assets/fonts/AtkinsonHyperlegibleNext.woff2") format("woff2");
+  font-family: "Newsreader";
+  src: url("/assets/fonts/Newsreader/Newsreader-Variable.woff2") format("woff2");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Newsreader";
+  src: url("/assets/fonts/Newsreader/Newsreader-VariableItalic.woff2") format("woff2");
+  font-weight: 200 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Young Serif (h1): only ships a single 400 weight */
+@font-face {
+  font-family: "Young Serif";
+  src: url("/assets/fonts/YoungSerif/YoungSerif-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* PP Right Serif Mono (code) */
+@font-face {
+  font-family: "PP Right Serif Mono";
+  src: url("/assets/fonts/Right/SerifMono/PPRightSerifMono-Regular.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Atkinson Hyperlegible Next";
-  src: url("/assets/fonts/AtkinsonHyperlegibleNext-Italic.woff2") format("woff2");
+  font-family: "PP Right Serif Mono";
+  src: url("/assets/fonts/Right/SerifMono/PPRightSerifMono-RegularItalic.otf") format("opentype");
   font-weight: 400;
   font-style: italic;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Atkinson Hyperlegible Next";
-  src: url("/assets/fonts/AtkinsonHyperlegibleNext.woff2") format("woff2");
+  font-family: "PP Right Serif Mono";
+  src: url("/assets/fonts/Right/SerifMono/PPRightSerifMono-Dark.otf") format("opentype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Atkinson Hyperlegible Next";
-  src: url("/assets/fonts/AtkinsonHyperlegibleNext-Italic.woff2") format("woff2");
-  font-weight: 700;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Atkinson Hyperlegible Mono";
-  src: url("/assets/fonts/AtkinsonHyperlegibleMono.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Atkinson Hyperlegible Mono";
-  src: url("/assets/fonts/AtkinsonHyperlegibleMono-Italic.woff2") format("woff2");
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Atkinson Hyperlegible Mono";
-  src: url("/assets/fonts/AtkinsonHyperlegibleMono.woff2") format("woff2");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Atkinson Hyperlegible Mono";
-  src: url("/assets/fonts/AtkinsonHyperlegibleMono-Italic.woff2") format("woff2");
+  font-family: "PP Right Serif Mono";
+  src: url("/assets/fonts/Right/SerifMono/PPRightSerifMono-DarkItalic.otf") format("opentype");
   font-weight: 700;
   font-style: italic;
   font-display: swap;
