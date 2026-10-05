@@ -15,33 +15,45 @@
 }
 
 :root:not([data-theme="dark"]) {
-  --pico-background-color: #f4e8d8;
-  --pico-color: #1f1e1d;
-  --pico-muted-color: #5e5d59;
-  --pico-muted-border-color: #ddd0ba;
-  --pico-border-color: #ddd0ba;
+  --pico-background-color: #F8F3EA;
+  --pico-color: #24231E;
+  --pico-muted-color: #625F55;
+  --pico-muted-border-color: #8F887C;
+  --pico-border-color: #8F887C;
 
-  --pico-primary: #1f1e1d;
-  --pico-primary-background: #1f1e1d;
-  --pico-primary-hover: #5e5d59;
+  --pico-primary: #24231E;
+  --pico-primary-background: #24231E;
+  --pico-primary-hover: #625F55;
   --pico-primary-hover-background: #1f1e1d;
   --pico-primary-focus: rgba(31, 30, 29, 0.25);
-  --pico-primary-inverse: #f4e8d8;
+  --pico-primary-inverse: #F8F3EA;
 
-  --pico-contrast: #1f1e1d;
-  --pico-contrast-hover: #5e5d59;
+  --pico-contrast: #24231E;
+  --pico-contrast-hover: #625F55;
   --pico-contrast-focus: rgba(31, 30, 29, 0.25);
   --pico-contrast-inverse: #f4e8d8;
 
-  --pico-h1-color: #1f1e1d;
-  --pico-h2-color: #1f1e1d;
-  --pico-h3-color: #1f1e1d;
-  --pico-h4-color: #1f1e1d;
-  --pico-h5-color: #1f1e1d;
-  --pico-h6-color: #1f1e1d;
+  --pico-h1-color: #24231E;
+  --pico-h2-color: #24231E;
+  --pico-h3-color: #24231E;
+  --pico-h4-color: #24231E;
+  --pico-h5-color: #24231E;
+  --pico-h6-color: #24231E;
 
-  --pico-card-background-color: #f4e8d8;
-  --pico-card-border-color: #ddd0ba;
+  --pico-accent-color: #4A6B3E;
+  --pico-underline: #4A6B3E;
+  
+  --pico-color-red: #C25B34;
+  --pico-color-blue: #45709A;
+  --pico-color-yellow: #D99A3A;
+  --pico-color-green: #3A8A6E;
+  --pico-color-indigo: #7FB3D5;
+  --pico-color-violet: #A9739E;
+  --pico-color-gray: #8F887C;
+
+  --pico-card-background-color: #F8F3EA;
+  --pico-card-sectioning-background-color: transparent;
+  --pico-card-border-color: #F8F3EA;
   --pico-card-box-shadow: none;
   --pico-button-box-shadow: none;
   --pico-button-hover-box-shadow: none;
@@ -50,14 +62,14 @@
   --pico-form-element-border-color: #ddd0ba;
   --pico-form-element-color: #1f1e1d;
 
-  --pico-code-background-color: #ece0cc;
-  --pico-code-color: #5e5d59;
+  --pico-code-background-color: #F0E9DD;
+  --pico-code-color: #625F55;
 }
 
 :root {
   --pico-font-family-sans-serif: "Newsreader", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
   --pico-font-family: var(--pico-font-family-sans-serif);
-  --pico-font-family-monospace: "PP Right Serif Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  --pico-font-family-monospace: "IBM Plex Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
   --font-family-heading: "Young Serif", Georgia, serif;
   --pico-font-weight: 400;
   --pico-border-radius: 2px;
@@ -76,18 +88,47 @@
   box-shadow: var(--pico-card-box-shadow);
 }
 
+/* Hide the photo on mobile: at narrow widths it eats too much space
+   next to the name/contact block. Without the photo (and its
+   margin-left) ahead of it, the title row loses the only thing that
+   was giving it a left gutter, so it needs its own padding to line
+   up with the card gutter below it. */
+@media (max-width: 768px) {
+  .home-photo {
+    display: none;
+  }
+
+  .title-row {
+    padding-inline: var(--pico-block-spacing-horizontal);
+  }
+}
+
 /* Layout: constrain article width to a narrow, essay-like measure */
 main {
   margin-inline: auto;
   overflow: visible;
 }
 
-header {
+/* Sticky header: pinned full-width so its fade can reach the
+   viewport edges, with the nav inside it keeping the usual centered
+   measure. The gradient fades from the page background color down to
+   transparent, so content scrolling underneath gradually dissolves
+   into the header rather than getting a hard clipped edge. */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  width: 100%;
+  padding: 1rem 0 2rem;
+  background: linear-gradient(to bottom, var(--pico-background-color) 60%, transparent);
+}
+
+.site-header nav {
   margin-inline: auto;
 }
 
 @media (min-width: 768px) {
-  main, header {
+  main, .site-header nav {
     max-width: var(--measure);
     margin-left: auto;
     margin-right: auto;
@@ -101,7 +142,7 @@ header {
     margin-left: 0vw;
   }
 
-  header {
+  .site-header nav {
     max-width: 90vw;
     margin-inline: auto;
   }
@@ -121,6 +162,23 @@ h1 {
   font-weight: 400;
   font-size: 2.4rem;
   padding-top: 1.0em;
+}
+
+/* Title card (home page name + contact block): only the name (h1)
+   uses the heading font. The role/affiliation/contact lines stay in
+   the body font (Newsreader), just larger than normal running text. */
+.title-card h5 {
+  font-family: var(--pico-font-family-sans-serif);
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 125%;
+}
+
+.title-card h6 {
+  font-family: var(--pico-font-family-sans-serif);
+  font-weight: 400;
+  font-size: 1.15rem;
+  line-height: 120%;
 }
 
 /* Keep <sup> from breaking link underlines into two segments. Pico
@@ -149,10 +207,18 @@ a {
   padding-inline: 0.1em;
   margin-inline: -0.1em;
 }
+/* Scale the underline down for small text (e.g. poster venue links)
+   so the wavy line doesn't dwarf the smaller font. */
+a:has(small),
+small a {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
 a:hover,
 a:focus {
   color: var(--pico-muted-color);
-  text-decoration-color: currentColor;
+  text-decoration-color: var(--pico-accent-color);
 }
 
 button a {
@@ -171,6 +237,25 @@ nav a {
 
 nav a:hover {
   text-decoration: underline wavy;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 8px;
+  text-decoration-color: var(--pico-accent-color);
+}
+
+/* Blog titles and project card titles: same hover-only wavy
+   underline as the navbar, instead of showing it all the time like
+   a regular body link. */
+a.post-title,
+a.card-title {
+  text-decoration: none;
+}
+
+a.post-title:hover,
+a.card-title:hover {
+  text-decoration: underline wavy;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 8px;
+  text-decoration-color: var(--pico-accent-color);
 }
 
 /* Flatten buttons/inputs to match the plain, undecorated aesthetic */
@@ -282,6 +367,8 @@ pre[class*="language-"],
 code[class*="language-"] {
   font-size: 0.95em;
   font-family: var(--pico-font-family-monospace);
+  color: var(--pico-color);
+  background: var(--pico-code-background-color);
 }
 
 /* Inline code */
