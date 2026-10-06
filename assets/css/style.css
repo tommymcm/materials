@@ -423,6 +423,15 @@ details summary:hover::after {
   background-color: var(--pico-accent-color);
 }
 
+/* Expanded summary content: styled like a note tucked under the entry,
+   with a slightly darker page tint and a green margin line. */
+details > :not(summary) {
+  padding: 0.75rem 1rem;
+  border-left: 3px solid var(--pico-accent-color);
+  border-radius: 0 var(--pico-border-radius) var(--pico-border-radius) 0;
+  background-color: rgba(36, 35, 30, 0.05);
+}
+
 /* Mobile/desktop-only content */
 @media (min-width: 769px) {
   .mobile-only  { display: none !important; }
