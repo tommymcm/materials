@@ -1,10 +1,8 @@
 ---
-layout: layouts/base.njk
+layout: layouts/page.njk
 title: Card Capture
 tags: games
 ---
-
-<h1>{{title}}</h1>
 
 <p>
 <a href="https://boardgamegeek.com/boardgame/264566/card-capture" target=_blank>Card Capture</a> is a deck building game played with a standard deck of cards, jokers included.
@@ -16,9 +14,93 @@ tags: games
 <center>
   <canvas id="canvas"></canvas>
 </center>
+<style>
+  /* Keep the canvas inside the page gutter. The game sets inline px
+     sizes on the canvas, so the height needs !important to follow the
+     width at the canvas's aspect ratio. Skipped in (pseudo-)fullscreen,
+     where the game or the code below sizes it. Input still maps
+     correctly since Emscripten scales mouse coords by the on-screen rect. */
+  :not(:fullscreen) > canvas:not(.pseudo-fs) {
+    max-width: 100%;
+    height: auto !important;
+  }
+  /* Pseudo-fullscreen (used where the Fullscreen API is unavailable,
+     e.g. iPhone Safari). The big box-shadow paints the letterbox. */
+  canvas.pseudo-fs {
+    position: fixed;
+    z-index: 1000;
+    margin: 0;
+    background: #000;
+    box-shadow: 0 0 0 100vmax #000;
+  }
+  html.pseudo-fs-active, html.pseudo-fs-active body {
+    overflow: hidden;
+    overscroll-behavior: none;
+  }
+</style>
 <script>
   var Module = {
-    canvas: document.getElementById('canvas')
+    canvas: document.getElementById('canvas'),
+    preRun: [function () {
+      // The game's ToggleFullscreen() calls Module.requestFullscreen,
+      // document.exitFullscreen and checks document.fullscreenElement.
+      // Where element fullscreen isn't supported, emulate all three.
+      // Installed in preRun so it replaces Emscripten's own version.
+      var probe = document.createElement('div');
+      if (probe.requestFullscreen || probe.webkitRequestFullscreen) return;
+
+      var canvas = Module.canvas;
+      var root = document.documentElement;
+      var active = false;
+      var saved = null;
+
+      function fit() {
+        if (!active) return;
+        var vw = window.innerWidth, vh = window.innerHeight;
+        var scale = Math.min(vw / canvas.width, vh / canvas.height);
+        var w = Math.floor(canvas.width * scale);
+        var h = Math.floor(canvas.height * scale);
+        canvas.style.width = w + 'px';
+        canvas.style.height = h + 'px';
+        canvas.style.left = Math.floor((vw - w) / 2) + 'px';
+        canvas.style.top = Math.floor((vh - h) / 2) + 'px';
+      }
+
+      function exit() {
+        if (!active) return;
+        active = false;
+        canvas.classList.remove('pseudo-fs');
+        root.classList.remove('pseudo-fs-active');
+        canvas.style.cssText = saved;
+        window.scrollTo(0, saved_scroll);
+        if (Module.onFullScreen) Module.onFullScreen(false);
+      }
+
+      var saved_scroll = 0;
+      function enter() {
+        if (active) return;
+        saved = canvas.style.cssText;
+        saved_scroll = window.pageYOffset;
+        active = true;
+        canvas.classList.add('pseudo-fs');
+        root.classList.add('pseudo-fs-active');
+        fit();
+        window.scrollTo(0, 0);
+        if (Module.onFullScreen) Module.onFullScreen(true);
+      }
+
+      Module.requestFullscreen = enter;
+      document.exitFullscreen = exit;
+      Object.defineProperty(document, 'fullscreenElement', {
+        configurable: true,
+        get: function () { return active ? canvas : null; }
+      });
+      window.addEventListener('resize', fit);
+      window.addEventListener('orientationchange', fit);
+      window.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') exit();
+      });
+    }]
   };
 </script>
 <script defer type="text/javascript" src="/assets/wasm/card-capture.js"></script>
