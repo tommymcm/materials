@@ -1,5 +1,14 @@
 [
   {
+    "company": "University of Illinois Urbana-Champaign",
+    "location": "Urbana, Illinois, USA",
+    "position": "Postdoctoral Research Associate",
+    "period": "2026 -- Present",
+    "bullets": [
+      "Automatic Compiler Construction"
+    ]
+  },
+  {
     "company": "Meta",
     "location": "Menlo Park, California, USA",
     "position": "Software Engineering Intern, Programming Languages and Runtimes, Android Native Compiler Team",

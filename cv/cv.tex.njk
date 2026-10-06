@@ -68,8 +68,8 @@ My interests lie in {\em compilers}, specifically how we can leverage modern pro
 
 \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}l r}
 
-\textbf{Northwestern University}, Evanston, Illinois, USA & 2020 -- Present \\
-Ph.D. in Computer Science, {\em Advised by Simone Campanoni} & (Expected 2026)\\
+\textbf{Northwestern University}, Evanston, Illinois, USA & 2020 -- 2026 \\
+Ph.D. in Computer Science, {\em Advised by Simone Campanoni} & 2026\\
 M.Sc. in Computer Science, {\em Advised by Simone Campanoni} & 2023 \\
 \\
 \textbf{Rose-Hulman Institute of Technology}, Terre Haute, Indiana, USA & 2016--2020 \\
@@ -127,7 +127,7 @@ B.Sc. in Computer Engineering and Computer Science & \\
 \vspace{0.5em}
 % =========================================================
 
-\noindent{\large \bf \textsc{Industry Experience}}
+\noindent{\large \bf \textsc{Professional Experience}}
 \vspace{0.5em}
 
 {% for job in industry %}
@@ -187,7 +187,7 @@ $\bullet$ {{bullet | texEscape | safe}} \\
 \vspace{0.5em}
 
 {% for student in advising %}
-  {{student.name | texEscape | safe}}, {{student.degree | texEscape | safe}}, {\em {{student.topic | safe}}}. \hfill {{student.start}} -- {% if student.end %}{{student.end}}{% else %}Present{%endif%}
+  {{student.name | texEscape | safe}}, {{student.degree | texEscape | safe}}, {\em {{student.topic | safe}}}. \hfill {{student.start}} -- {% if student.end %}{{student.end}}{% if student.placement %} ({{student.placement}}){% endif %}{% else %}Present{%endif%}
 {% endfor %}
 
 

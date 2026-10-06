@@ -33,21 +33,21 @@
   },
   { "role": "Student Volunteer",
     "org": "International Symposium on Microarchitecture (MICRO)",
-    "date": "October 2022"
+    "date": "2022"
   },
   { "role": "Chairperson",
     "org": "IEEE, Rose-Hulman Institute of Technology student branch",
-    "date": "August 2019",
-    "end": "May 2020"
+    "date": "2019",
+    "end": "2020"
   },
   { "role": "Corresponding Secretary",
     "org": "Eta Kappa Nu (HKN), Epsilon Eta Chapter",
-    "date": "August 2019",
-    "end": "May 2020"
+    "date": "2019",
+    "end": "2020"
   },
   { "role": "Member",
     "org": "Eta Kappa Nu (HKN), Epsilon Eta Chapter",
-    "date": "May 2018",
-    "end": "May 2020"
+    "date": "2018",
+    "end": "2020"
   }
 ]
