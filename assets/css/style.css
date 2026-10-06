@@ -388,6 +388,13 @@ code[class*="language-"] {
   background: var(--pico-code-background-color);
 }
 
+/* Prism's default theme gives code a white text-shadow; drop it. */
+code,
+code[class*="language-"],
+pre[class*="language-"] {
+  text-shadow: none;
+}
+
 /* Inline code */
 :not(pre) > code {
   padding: 0.1em 0.3em;
