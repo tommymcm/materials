@@ -407,6 +407,22 @@ summary::-webkit-details-marker {
   display: none;
 }
 
+/* Summary disclosure icon: a small hand-drawn caret in place of Pico's
+   geometric chevron, drawn as two tapered pen strokes. Pico already rotates it (right when closed, down
+   when open); here it is a mask over the muted ink color so it follows
+   the theme, and warms to the accent color on hover. */
+details summary::after {
+  background-image: none;
+  background-color: var(--pico-muted-border-color);
+  -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path d='M2.05 5.21 L2.25 5.43 L2.44 5.65 L2.65 5.89 L2.86 6.13 L3.07 6.39 L3.29 6.66 L3.50 6.94 L3.73 7.23 L3.95 7.53 L4.18 7.84 L4.41 8.16 L4.65 8.49 L4.88 8.82 L5.12 9.16 L5.37 9.50 L5.61 9.84 L5.86 10.19 L6.11 10.54 L6.36 10.89 L6.62 11.24 L6.87 11.59 L7.13 11.94 L8.67 10.66 L8.38 10.35 L8.10 10.04 L7.81 9.72 L7.53 9.40 L7.25 9.08 L6.96 8.77 L6.68 8.45 L6.40 8.13 L6.12 7.82 L5.84 7.52 L5.56 7.21 L5.28 6.92 L5.01 6.63 L4.73 6.35 L4.46 6.08 L4.18 5.82 L3.91 5.58 L3.64 5.34 L3.36 5.13 L3.09 4.92 L2.82 4.74 L2.55 4.59Z'/><path d='M8.66 11.95 L8.87 11.64 L9.09 11.31 L9.29 10.97 L9.49 10.63 L9.68 10.28 L9.87 9.93 L10.06 9.58 L10.25 9.22 L10.44 8.86 L10.64 8.50 L10.85 8.14 L11.07 7.78 L11.30 7.42 L11.54 7.07 L11.79 6.71 L12.07 6.36 L12.36 6.02 L12.67 5.68 L13.01 5.34 L13.37 5.02 L13.76 4.70 L14.19 4.39 L13.81 3.81 L13.34 4.08 L12.89 4.38 L12.46 4.68 L12.06 5.00 L11.67 5.33 L11.31 5.67 L10.97 6.01 L10.65 6.36 L10.34 6.71 L10.05 7.06 L9.77 7.41 L9.51 7.75 L9.25 8.10 L9.00 8.43 L8.76 8.76 L8.52 9.07 L8.29 9.38 L8.06 9.67 L7.84 9.94 L7.61 10.19 L7.38 10.43 L7.14 10.65Z'/><circle cx='7.95' cy='11.25' r='1'/></svg>") center / 100% 100% no-repeat;
+  mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path d='M2.05 5.21 L2.25 5.43 L2.44 5.65 L2.65 5.89 L2.86 6.13 L3.07 6.39 L3.29 6.66 L3.50 6.94 L3.73 7.23 L3.95 7.53 L4.18 7.84 L4.41 8.16 L4.65 8.49 L4.88 8.82 L5.12 9.16 L5.37 9.50 L5.61 9.84 L5.86 10.19 L6.11 10.54 L6.36 10.89 L6.62 11.24 L6.87 11.59 L7.13 11.94 L8.67 10.66 L8.38 10.35 L8.10 10.04 L7.81 9.72 L7.53 9.40 L7.25 9.08 L6.96 8.77 L6.68 8.45 L6.40 8.13 L6.12 7.82 L5.84 7.52 L5.56 7.21 L5.28 6.92 L5.01 6.63 L4.73 6.35 L4.46 6.08 L4.18 5.82 L3.91 5.58 L3.64 5.34 L3.36 5.13 L3.09 4.92 L2.82 4.74 L2.55 4.59Z'/><path d='M8.66 11.95 L8.87 11.64 L9.09 11.31 L9.29 10.97 L9.49 10.63 L9.68 10.28 L9.87 9.93 L10.06 9.58 L10.25 9.22 L10.44 8.86 L10.64 8.50 L10.85 8.14 L11.07 7.78 L11.30 7.42 L11.54 7.07 L11.79 6.71 L12.07 6.36 L12.36 6.02 L12.67 5.68 L13.01 5.34 L13.37 5.02 L13.76 4.70 L14.19 4.39 L13.81 3.81 L13.34 4.08 L12.89 4.38 L12.46 4.68 L12.06 5.00 L11.67 5.33 L11.31 5.67 L10.97 6.01 L10.65 6.36 L10.34 6.71 L10.05 7.06 L9.77 7.41 L9.51 7.75 L9.25 8.10 L9.00 8.43 L8.76 8.76 L8.52 9.07 L8.29 9.38 L8.06 9.67 L7.84 9.94 L7.61 10.19 L7.38 10.43 L7.14 10.65Z'/><circle cx='7.95' cy='11.25' r='1'/></svg>") center / 100% 100% no-repeat;
+  transition: transform var(--pico-transition), background-color var(--pico-transition);
+}
+
+details summary:hover::after {
+  background-color: var(--pico-accent-color);
+}
+
 /* Mobile/desktop-only content */
 @media (min-width: 769px) {
   .mobile-only  { display: none !important; }
