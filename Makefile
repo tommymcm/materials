@@ -13,5 +13,5 @@ serve: deps
 	$(ELEVENTY) --serve
 
 .PHONY: cv.pdf
-cv.pdf: _site/cv/cv.tex build
-	pdflatex --shell-escape $<
+cv.pdf: build
+	typst compile --root _site _site/cv/cv.typ $@

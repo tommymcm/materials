@@ -4,7 +4,6 @@ const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const rss = require("@11ty/eleventy-plugin-rss");
 const nunjucks = require("nunjucks");
 const { execSync } = require('child_process');
-const path = require('path');
 
 module.exports = function(eleventyConfig) {
   // Add syntax highlighting
@@ -158,6 +157,26 @@ module.exports = function(eleventyConfig) {
     }).join(", ");
   });
   
+  // Typst equivalents. Escapes markup-significant characters, and turns the
+  // one LaTeX \textsc{...} left in the data into Typst small caps.
+  const typstEscape = (text) => {
+    if (!text) return "";
+    const escaped = String(text).replace(/[\\#$*_`@<>\[\]~\/]/g, '\\$&');
+    return escaped.replace(/\\\\textsc\{([^}]*)\}/g, '#smallcaps[$1]');
+  };
+  eleventyConfig.addFilter("typstEscape", typstEscape);
+
+  eleventyConfig.addFilter("typstFormatAuthors", function(authors) {
+    if (!authors) return "";
+
+    return authors.map(author => {
+      if (author === yourName) {
+        return `*${typstEscape(author)}*`;
+      }
+      return typstEscape(author);
+    }).join(", ");
+  });
+
   eleventyConfig.addFilter("toWWW", function(url) {
     if (!url) return "";
     return url.replace("https://", "www.").replace("http://", "www.");
@@ -175,33 +194,19 @@ module.exports = function(eleventyConfig) {
     return `<span class="sidenote-wrapper"><sup>${n}</sup><span class="sidenote"><sup>${n}</sup> ${content}</span></span>`;
 });
 
-  // After build: compile LaTeX to PDF
+  // After build: compile the Typst CV to PDF
   eleventyConfig.on('eleventy.after', async () => {
-    const texFile = path.join('_site', 'cv', 'cv.tex');
-    const cvDir = path.join('_site', 'cv');
-    
     try {
       console.log('Compiling CV to PDF...');
-      
-      // Set TEXINPUTS to include the assets/images directory
-      const texInputs = path.join(process.cwd(), '_site', 'assets', 'images') + ':';
-      
-      // Run pdflatex twice to resolve references
-      execSync('pdflatex -interaction=nonstopmode cv.tex', {
-        cwd: cvDir,
-        stdio: 'inherit',
-        env: { ...process.env, TEXINPUTS: texInputs }
+
+      // --root _site lets the template reference /assets/images/...
+      execSync('typst compile --root _site _site/cv/cv.typ _site/cv/cv.pdf', {
+        stdio: 'inherit'
       });
-      
-      execSync('pdflatex -interaction=nonstopmode cv.tex', {
-        cwd: cvDir,
-        stdio: 'inherit',
-        env: { ...process.env, TEXINPUTS: texInputs }
-      });
-      
+
       console.log('CV compiled successfully!');
     } catch (error) {
-      console.error('LaTeX compilation failed:', error.message);
+      console.error('Typst compilation failed:', error.message);
       // Don't throw - let the build continue
     }
   });

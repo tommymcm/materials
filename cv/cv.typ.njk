@@ -1,0 +1,181 @@
+---
+permalink: /cv/cv.typ
+eleventyExcludeFromCollections: true
+---
+// Generated from cv/cv.typ.njk by Eleventy; compiled to cv.pdf by the
+// `eleventy.after` hook in .eleventy.js. Do not edit _site/ directly.
+
+#let ink = rgb("#24231E")
+#let muted = rgb("#625F55")
+#let accent = rgb("#C25B34")
+
+#set document(title: "Curriculum Vitae", author: "{{ site.name }}")
+#set page(
+  paper: "a4",
+  margin: (x: 2.5cm, top: 2.2cm, bottom: 2.4cm),
+  footer: context [
+    #set text(size: 9pt, fill: muted)
+    #h(1fr) {{ site.name }} — Page #counter(page).display() of #counter(page).final().first() #h(1fr)
+  ],
+)
+#set text(font: "Libertinus Serif", size: 11pt, fill: ink, lang: "en")
+#set par(leading: 0.8em, spacing: 1em, justify: false)
+#show link: set text(fill: accent)
+
+// Section headings: small caps over a thin rule, with room above.
+#show heading.where(level: 1): it => block(above: 2.2em, below: 1em, sticky: true)[
+  #text(size: 13pt, weight: "bold", tracking: 0.04em, smallcaps(it.body))
+  #v(-0.5em)
+  #line(length: 100%, stroke: 0.6pt + muted)
+]
+
+// "Left ........ right" row, e.g. a role and its dates.
+#let row(lead, trail) = grid(
+  columns: (1fr, auto),
+  column-gutter: 1.5em,
+  lead, align(right, trail),
+)
+
+// One entry in a list, kept together across page breaks.
+#let entry(body) = block(breakable: false, above: 1em, below: 1em, body)
+
+// =========================================================
+// Header
+#align(center)[
+  #text(size: 26pt, weight: "bold", smallcaps[Tommy M#super[c]Michen])
+  #v(0.2em)
+  #text(size: 11pt)[
+    {{ site.institution | typstEscape | safe }} #h(0.6em)·#h(0.6em) {{ site.department | typstEscape | safe }}
+  ]
+  #v(0.1em)
+  #text(size: 10.5pt, fill: muted)[
+    #link("mailto:{{ site.email }}")[{{ site.email | typstEscape | safe }}]
+    #h(0.6em)·#h(0.6em)
+    {{ site.phone | typstEscape | safe }}
+    #h(0.6em)·#h(0.6em)
+    #link("{{ site.website }}")[{{ site.website | toWWW | typstEscape | safe }}]
+  ]
+]
+
+// =========================================================
+= Research Interests
+
+My interests lie in _compilers_, specifically how we can leverage modern programming languages to design general-purpose _intermediate representations_ that (1) improve the precision of _static analysis_ by preserving high-level information, (2) enable novel _optimizations_ on the layout and organization of memory, and (3) open the door to _compiler-runtime codesigns_ that rethink existing hardware abstractions.
+
+// =========================================================
+= Professional Experience
+
+{% for job in industry %}
+#entry[
+  #row[*{{ job.company | typstEscape | safe }}*, {{ job.location | typstEscape | safe }}][{{ job.period }}]
+  #v(0.5em, weak: true)
+  _{{ job.position | typstEscape | safe }}_
+  {% if job.bullets %}
+  #v(0.6em, weak: true)
+  #list(
+    marker: [•],
+    spacing: 0.7em,
+    body-indent: 0.6em,
+    {% for bullet in job.bullets %}[{{ bullet | typstEscape | safe }}],
+    {% endfor %}
+  )
+  {% endif %}
+]
+{% endfor %}
+
+
+// =========================================================
+= Education
+
+{% for edu in education %}
+#entry[
+  #row[*{{ edu.institution | typstEscape | safe }}*, {{ edu.location | typstEscape | safe }}][{{ edu.start }} -- {{ edu.end }}]
+  {% for degree in edu.degrees %}
+  #v(0.5em, weak: true)
+  #row[
+    {{ degree.degree | typstEscape | safe }} in {{ degree.major | typstEscape | safe }}{% if degree.advisor %}, _Advised by {{ degree.advisor | typstEscape | safe }}_{% endif %}
+  ][{{ degree.date }}]
+  {% endfor %}
+]
+{% endfor %}
+
+// =========================================================
+= Publications
+
+{% for pub in publications %}
+#entry[
+  #row[
+    *{{ pub.title | typstEscape | safe }}*, _{{ pub.venue.abbr | typstEscape | safe }} {{ pub.year }}._
+  ][
+    {%- if pub.artifact and pub.artifact.badges -%}
+    #stack(dir: ltr, spacing: 0.35em,
+      {%- for badge in pub.artifact.badges %}
+      image("/assets/images/{{ badge }}.svg", height: 1.3em),
+      {%- endfor %}
+    )
+    {%- endif -%}
+  ]
+  #v(0.4em, weak: true)
+  #text(size: 10pt, fill: muted)[{{ pub.authors | typstFormatAuthors | safe }}.]
+]
+{% endfor %}
+
+// =========================================================
+= Invited Talks
+
+{% for talk in talks %}
+#entry[
+  *"{{ talk.title | typstEscape | safe }}"*
+  {% for venue in talk.venues %}
+  #v(0.5em, weak: true)
+  #row[
+    {{ venue.series | typstEscape | safe }}{% if venue.location %}, _{{ venue.location | typstEscape | safe }}_{% endif %}.
+  ][{{ venue.date }}]
+  {% endfor %}
+]
+{% endfor %}
+
+
+// =========================================================
+= Teaching Experience
+
+{% for teach in teaching %}
+#entry[
+  #row[
+    *{{ teach.role | typstEscape | safe }}*, _{{ teach.name | typstEscape | safe }}_{% if teach.instructor %}, {{ teach.instructor | typstEscape | safe }}{% endif %}.
+  ][{{ teach.date }}]
+]
+{% endfor %}
+
+// =========================================================
+= Service
+
+{% for serve in service %}
+#entry[
+  #row[
+    *{{ serve.role | typstEscape | safe }}*, {{ serve.org | typstEscape | safe }}.
+  ][{{ serve.date }}{% if serve.end %} -- {{ serve.end }}{% endif %}]
+]
+{% endfor %}
+
+// =========================================================
+= Awards and Funding
+
+{% for award in awards %}
+#entry[
+  #row[
+    {{ award.award | typstEscape | safe }}{% if award.event %}, _{{ award.event | typstEscape | safe }}_{% endif %}.
+  ][{{ award.year }}]
+]
+{% endfor %}
+
+// =========================================================
+= Research Advising
+
+{% for student in advising %}
+#entry[
+  #row[
+    *{{ student.name | typstEscape | safe }}*, {{ student.degree | typstEscape | safe }}, _{{ student.topic | typstEscape | safe }}_.
+  ][{{ student.start }} -- {% if student.end %}{{ student.end }}{% if student.placement %} ({{ student.placement | typstEscape | safe }}){% endif %}{% else %}Present{% endif %}]
+]
+{% endfor %}

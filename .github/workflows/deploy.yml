@@ -19,20 +19,14 @@ jobs:
       - name: Install dependencies
         run: bun install
       
+      - name: Setup Typst
+        uses: typst-community/setup-typst@v4
+
       - name: Build Eleventy site
         run: bun run eleventy
 
-      - name: Install LaTeX
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y texlive-latex-base texlive-latex-extra texlive-fonts-recommended
-      
       - name: Compile CV to PDF
-        run: |
-          cd _site/cv
-          export TEXINPUTS=../assets/images/:$TEXINPUTS
-          pdflatex cv.tex
-          pdflatex cv.tex
+        run: typst compile --root _site _site/cv/cv.typ _site/cv/cv.pdf
         continue-on-error: true
       
       - name: Deploy to GitHub Pages repo
