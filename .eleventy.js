@@ -14,6 +14,7 @@ module.exports = function(eleventyConfig) {
   
   // Copy static assets
   eleventyConfig.addPassthroughCopy("robots.txt");
+  eleventyConfig.addPassthroughCopy("favicon.svg");
   eleventyConfig.addPassthroughCopy("files");  
   eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.addPassthroughCopy({
