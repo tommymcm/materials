@@ -2,4 +2,10 @@
 layout: layouts/page.njk
 ---
 
+<p class="post-date" style="text-align: center; color: var(--pico-muted-color);">
+  <time datetime="{{ page.date | dateFormat("yyyy-MM-dd") }}">
+    {{ page.date | dateFormat("MMMM d, yyyy") }}
+  </time>
+</p>
+
 {{ content | safe }}
