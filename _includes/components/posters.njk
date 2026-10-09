@@ -22,11 +22,8 @@
   {%- for venue in poster.venues | sortByYear | reverse -%}
     <br>
     {%- if venue.url -%}<a href="{{ venue.url }}">{%- endif -%}
-    <small>
-      <i>{{ venue.location }}</i>, {{ venue.date }}.
-    </small>
+    <i>{{ venue.location }}</i>, {{ venue.date }}.
     {%- if venue.url -%}</a>{%- endif -%}
   {%- endfor -%}
 </hgroup>
-{% if not loop.last %}<hr />{% endif %}
 {% endfor %}

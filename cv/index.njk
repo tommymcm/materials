@@ -14,7 +14,7 @@ layout: layouts/base.njk
 
 <article>
 <h2>Education</h2>
-
+<hr>
 {% for edu in education %}
 <b>{{edu.institution}}</b>, </i>{{edu.location}}</i>.
 
@@ -23,18 +23,18 @@ layout: layouts/base.njk
     {{degree.degree}} in {{degree.major}}{%- if degree.advisor -%}, <i>Advised by {{degree.advisor}}</i>{%- endif -%}. {{degree.date}}.
   {% endfor %}
 
-  {% if not loop.last %}<hr />{% endif %}
-
 {% endfor %}
 </article>
 
 <article>
 <h2>Publications</h2>
+<hr>
 {% include "components/publications.njk" %}
 </article>
 
 <article>
 <h2>Talks</h2>
+<hr>
 {% for talk in talks | sortByYear | reverse %}
   <hgroup>
     <h5>
@@ -53,14 +53,13 @@ layout: layouts/base.njk
       <br>
     {%- endif -%}
 
-    {% for venue in talk.venues | sortByYear | reverse %}
+    {% for venue in talk.venues | sortByYear %}
       {%- if not loop.first %}<br>{%- endif -%}
       <i>{{venue.series}}</i>
       {%- if venue.location -%}&nbsp;at {{venue.location}}{%- endif -%},
       {{venue.date}}.
     {% endfor %}
 
-    {% if not loop.last %}<hr />{% endif %}
   </hgroup>
 {% endfor %}
 </article>
@@ -68,40 +67,39 @@ layout: layouts/base.njk
 
 <article>
   <h2>Posters</h2>
+  <hr>
   {% include "components/posters.njk" %}
 </article>
 
 
 <article>
-<h2>Service</h2>
+  <h2>Service</h2>
+  <hr>
 {% for serve in service %}
   <hgroup>
     <h5>{{serve.role}}</h5>
-    <small>
-      <i>{{serve.org}}</i>,
-      {{serve.date}}{% if serve.end %}—{{serve.end}}{% endif %}.
-    </small>
+    <i>{{serve.org}}</i>,
+    {{serve.date}}{% if serve.end %}—{{serve.end}}{% endif %}.
   </hgroup>
 {% endfor %}
 </article>
 
 
 <article>
-<h2>Teaching Experience</h2>
-{% for teach in teaching %}
+  <h2>Teaching Experience</h2>
+  <hr>
+  {% for teach in teaching %}
 
-  <hgroup>
-    <h5>{{teach.role}}</h5>
-    <small>
-      <a href="{{ teach.url }}">{{ teach.name }}</a>
-      {%- if teach.instructor -%}
-        , <i>Instructor: {{ teach.instructor }}</i>
-      {%- endif -%}
-      .
-    </small>
-  </hgroup>
-  {% if not loop.last %}<hr />{% endif %}
-{% endfor %}
+    <hgroup>
+      <h5>{{teach.role}}</h5>
+        <a href="{{ teach.url }}">{{ teach.name }}</a>
+        {%- if teach.instructor -%}
+          , <i>Instructor: {{ teach.instructor }}</i>
+        {%- endif -%}
+        .
+    </hgroup>
+
+  {% endfor %}
 </article>
 
 </article>
