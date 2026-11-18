@@ -24,6 +24,9 @@ module.exports = function(eleventyConfig) {
     "node_modules/prismjs/themes/prism.css": "assets/css/prismjs/prism.css",
     // "node_modules/prismjs/themes/prism.js": "assets/js/prismjs/prism.js"
   });
+
+  // Merge tags.
+  eleventyConfig.setDataDeepMerge(true);
   
   // Map filter - gets array of values from array of objects
   eleventyConfig.addFilter("map", function(array, key) {

@@ -1,14 +1,9 @@
-{% set highlights = [
-  "#a0cbe8", "#ffbe7d", "#ff9d9a", "#86bcb6",
-  "#8cd17d", "#f1ce63", "#d4a6c8", "#fabfd2"
-] %}
-
 {% set navItems = [
-  ["Research", "/research/", "blue"],
-  ["C/V", "/cv/", "orange"],
-  ["Blog", "/posts/", "red"],
-  ["Projects", "/projects/", "green"],
-  ["Games", "/games/", "purple"]
+  ["Research", "/research/"],
+  ["C/V", "/cv/"],
+  ["Blog", "/posts/"],
+  ["Projects", "/projects/"],
+  ["Misc", "/misc/"]
 ] %}
 
 <header class="site-header">
@@ -21,15 +16,14 @@
           </span>
         </a>
         <a href="/" class="mobile-only">
-          <img alt="Home" src="/assets/images/home.svg" height=24 width=24 />
+          <img alt="Home" src="/assets/images/home.svg" height=64 width=64 />
         </a>
       </li>
     </ul>
     <ul>
-      {% for name, link, color in navItems %}
+      {% for name, link in navItems %}
         <li>
-          <a href="{{link}}"
-             style="--highlight-color: var(--t-{{color}}); --highlight-color-light: var(--t-{{color}}-light);">
+          <a href="{{link}}">
             {{name}}
           </a>
         </li>
