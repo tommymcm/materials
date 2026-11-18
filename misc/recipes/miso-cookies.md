@@ -5,7 +5,7 @@ title: Sesame Miso Cookies
 
 A delightful butter cookie recipe for the summer months, with a twist! My friend [Hyeok]() gave me some high-quality Korean sesame seeds, which led me to this [recipe](https://beinspired.au/recipes/miso-sesame-cookies/).
 
-*Preparation time:* 15 minutes (+1 hour wait)
+*Preparation time:* 15 minutes (+1 hour wait) \
 *Bake time:* 15 minutes
 
 ### Ingredients
