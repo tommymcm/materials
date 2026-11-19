@@ -58,3 +58,15 @@
   font-style: italic;
   font-display: swap;
 }
+
+/* Noto Emoji (monochrome emoji fallback): a single variable file
+   covering weights 300-700, so emoji track the surrounding text's
+   weight. Listed in the font stacks in style.css just before the
+   generic family, so it only picks up characters the text fonts lack. */
+@font-face {
+  font-family: "Noto Emoji";
+  src: url("/assets/fonts/NotoEmoji%5Bwght%5D.ttf") format("truetype");
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}

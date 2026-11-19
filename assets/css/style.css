@@ -67,10 +67,11 @@
 }
 
 :root {
-  --pico-font-family-sans-serif: "Newsreader", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  --pico-font-family-emoji: "Noto Emoji";
+  --pico-font-family-sans-serif: "Newsreader", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", var(--pico-font-family-emoji), serif;
   --pico-font-family: var(--pico-font-family-sans-serif);
-  --pico-font-family-monospace: "IBM Plex Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
-  --font-family-heading: "Young Serif", Georgia, serif;
+  --pico-font-family-monospace: "IBM Plex Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", var(--pico-font-family-emoji), monospace;
+  --font-family-heading: "Young Serif", Georgia, var(--pico-font-family-emoji), serif;
   --pico-font-weight: 400;
   --pico-border-radius: 2px;
   --pico-line-height: 1.6;
@@ -232,8 +233,8 @@ small a {
   text-underline-offset: 3px;
 }
 
-a:hover,
-a:focus {
+a:not(.no-hover):hover,
+a:not(.no-hover):focus {
   color: var(--pico-muted-color);
   text-decoration-color: var(--pico-accent-color);
 }
@@ -252,7 +253,7 @@ nav a {
   text-decoration: none;
 }
 
-nav a:hover {
+nav a:not(.mobile-only):hover {
   text-decoration: underline wavy;
   text-decoration-thickness: 2px;
   text-underline-offset: 8px;
