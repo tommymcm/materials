@@ -17,6 +17,12 @@
     "url": "https://github.com/tommymcm/nifty"
   },
   {
+    "name": "fontain",
+    "desc": "A simple tool to install and manage fonts on unix systems.",
+    "url": "https://github.com/tommymcm/fontain",
+    "img": "/assets/images/fontain-logo.png"
+  },
+  {
     "name": "NOELLE",
     "desc": "Abstractions for advanced LLVM analysis and transformation.",
     "url": "https://github.com/arcana-lab/noelle"
