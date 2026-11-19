@@ -13,7 +13,7 @@ I like playing solitaire card games. I am slowly building online versions of eac
 
 {% for game in collections.games %}
 
-## [{{ game.data.title }}](game.url)
+## [{{ game.data.title }}]({{ game.url }})
 
 {{ game.data.desc }}
 
