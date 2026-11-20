@@ -1,0 +1,30 @@
+---
+layout: layouts/page.njk
+title: Photography
+eleventyExcludeFromCollections: true
+---
+
+<p>
+  I travel around the states whenever I can, and try to take time to go and explore other countries whenever I'm there for a conference. While I am not a great photographer, and only take photos with my phone, I have collected some good ones over the years.
+</p>
+
+{#- Albums come from _data/photos.js, newest (by latest photo) first. -#}
+{% for album in photos %}
+<hr>
+<section class="album" id="{{ album.slug }}">
+  <header class="album-header">
+    <h2><a class="post-title" href="#{{ album.slug }}">{{ album.title }}</a></h2>
+    <p class="album-date">{{ album.dates }}</p>
+    {% if album.description %}<p>{{ album.description }}</p>{% endif %}
+  </header>
+
+  <div class="gallery">
+    {% for photo in album.photos %}
+    <figure class="gallery-item" style="--ar: {{ photo.aspectRatio }}">
+      <a href="{{ photo.fullUrl }}" title="{{ photo.date }}">{{ photo.html | safe }}</a>
+      {% if photo.caption %}<figcaption>{{ photo.caption }}</figcaption>{% endif %}
+    </figure>
+    {% endfor %}
+  </div>
+</section>
+{% endfor %}

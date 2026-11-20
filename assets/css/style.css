@@ -509,3 +509,53 @@ details > :not(summary) {
   padding-left: 0;
   padding-right: 1.5rem;
 }
+
+/* Photo albums (misc/photos): justified rows that keep each photo's
+   own aspect ratio and read left-to-right in capture order. Each item
+   grows in proportion to its aspect ratio (--ar, set inline), so every
+   photo in a row ends up the same height. */
+.album-header h2 {
+  margin-bottom: 0.25rem;
+}
+
+.album-date {
+  color: var(--pico-muted-color);
+  font-style: italic;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: var(--pico-typography-spacing-vertical);
+}
+
+/* Keeps the last, partly filled row from stretching its photos. */
+.gallery::after {
+  content: "";
+  flex-grow: 999;
+}
+
+.gallery-item {
+  flex: var(--ar) 1 calc(var(--ar) * 9rem);
+  margin: 0;
+}
+
+.gallery-item a {
+  display: block;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+}
+
+.gallery-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--pico-border-radius);
+}
+
+.gallery-item figcaption {
+  font-size: 0.85rem;
+  color: var(--pico-muted-color);
+}
