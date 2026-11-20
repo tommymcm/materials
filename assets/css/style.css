@@ -281,10 +281,19 @@ small a {
   text-underline-offset: 3px;
 }
 
-a:not(.no-hover):hover,
-a:not(.no-hover):focus {
+a:hover,
+a:focus {
   color: var(--pico-muted-color);
   text-decoration-color: var(--pico-accent-color);
+}
+
+/* .no-hover links (e.g. the mobile home icon, the reading-page
+   Download link): no underline at all, but they still lighten on
+   hover/focus like every other link. */
+a.no-hover,
+a.no-hover:hover,
+a.no-hover:focus {
+  text-decoration: none;
 }
 
 button a {
