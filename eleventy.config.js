@@ -27,6 +27,49 @@ module.exports = function(eleventyConfig) {
 
   // Merge tags.
   eleventyConfig.setDataDeepMerge(true);
+
+  // Recipe fractions: rewrite plain-text fractions like "1/2" (and
+  // mixed numbers like "1 1/2") into Unicode fraction characters ("½",
+  // "1½") in the rendered recipe pages, so the Markdown can stay plain
+  // ASCII. Only text between tags is touched (never attributes/URLs),
+  // and <pre>, <code>, <script> and <style> contents are skipped.
+  const VULGAR_FRACTIONS = {
+    "1/2": "½", "1/3": "⅓", "2/3": "⅔", "1/4": "¼", "3/4": "¾",
+    "1/5": "⅕", "2/5": "⅖", "3/5": "⅗", "4/5": "⅘", "1/6": "⅙",
+    "5/6": "⅚", "1/7": "⅐", "1/8": "⅛", "3/8": "⅜", "5/8": "⅝",
+    "7/8": "⅞", "1/9": "⅑", "1/10": "⅒",
+  };
+  const SUPERSCRIPT = "⁰¹²³⁴⁵⁶⁷⁸⁹";
+  const SUBSCRIPT = "₀₁₂₃₄₅₆₇₈₉";
+  const toFraction = (num, den) =>
+    VULGAR_FRACTIONS[`${num}/${den}`] ??
+    [...num].map(d => SUPERSCRIPT[d]).join("") + "⁄" +
+    [...den].map(d => SUBSCRIPT[d]).join("");
+  // Optional whole number, then num/den; not part of a date or path.
+  const FRACTION_RE = /(?<![\d\/])(?:(\d+) )?(\d+)\/(\d+)(?![\d\/])/g;
+
+  eleventyConfig.addTransform("recipe-fractions", function(content) {
+    const { inputPath, outputPath } = this.page;
+    if (!outputPath?.endsWith(".html") || !inputPath.includes("/misc/recipes/")) {
+      return content;
+    }
+    let skipDepth = 0;
+    return content
+      .split(/(<[^>]*>)/)
+      .map(part => {
+        const tag = part.match(/^<(\/?)(pre|code|script|style)\b/i);
+        if (tag) {
+          skipDepth += tag[1] ? -1 : 1;
+          return part;
+        }
+        if (part.startsWith("<") || skipDepth > 0) {
+          return part;
+        }
+        return part.replace(FRACTION_RE, (match, whole, num, den) =>
+          den === "0" ? match : (whole ?? "") + toFraction(num, den));
+      })
+      .join("");
+  });
   
   // Map filter - gets array of values from array of objects
   eleventyConfig.addFilter("map", function(array, key) {

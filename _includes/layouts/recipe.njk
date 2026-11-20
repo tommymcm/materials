@@ -1,0 +1,8 @@
+---
+layout: layouts/page.njk
+---
+{#- Recipes: same page shell, wrapped so style.css can restyle the
+    ingredient tables as a traditional recipe list. -#}
+<div class="recipe">
+  {{ content | safe }}
+</div>

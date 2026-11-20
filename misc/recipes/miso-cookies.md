@@ -1,5 +1,4 @@
 ---
-layout: layouts/page.njk
 title: Sesame Miso Cookies
 ---
 

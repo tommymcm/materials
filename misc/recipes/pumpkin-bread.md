@@ -1,5 +1,4 @@
 ---
-layout: layouts/page.njk
 title: Pumpkin Bread
 ---
 

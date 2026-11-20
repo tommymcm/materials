@@ -153,7 +153,9 @@ main {
    ends. Drawn as a mask over the muted border color so it follows the
    theme. Four stroke variants cycle through successive rules, and every
    other one is mirrored, so neighbouring dividers don't look stamped. */
-hr {
+hr,
+.recipe table::before,
+.recipe table::after {
   --hr-stroke: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 8' preserveAspectRatio='none'><path d='M2 3.88 C35 3.49 50 3.05 70 3.57 105 3.98 120 4.38 140 4.47 180 3.82 195 2.98 215 3.43 255 3.93 270 4.41 290 4.26 330 4.5 345 4.05 365 3.96 405 3.28 420 3.97 440 3.4 480 3.67 495 4.64 515 4.21 563 3.12 578 2.94 598 3.37' fill='none' stroke='black' stroke-width='1.79' stroke-linecap='round'/><path d='M2 3.88 C35 3.49 50 3.05 70 3.57 105 3.98 120 4.38 140 4.47 180 3.82 195 2.98 215 3.43 255 3.93 270 4.41 290 4.26 330 4.5 345 4.05 365 3.96 405 3.28 420 3.97 440 3.4 480 3.67 495 4.64 515 4.21 563 3.12 578 2.94 598 3.37' transform='translate(0 0.5)' fill='none' stroke='black' stroke-width='0.8' stroke-linecap='round' stroke-dasharray='0 50 460 1000' opacity='0.55'/></svg>");
   height: 8px;
   border: 0;
@@ -448,4 +450,62 @@ details > :not(summary) {
 @media (max-width: 768px) {
   .mobile-only { display: auto; }
   .desktop-only  { display: none !important; }
+}
+
+/* Recipe ingredient lists (layouts/recipe.njk): the Markdown tables
+   are written as two headerless columns (quantity | ingredient) and
+   restyled here as a traditional cookbook list: a compact
+   quantity column beside the ingredients, no grid lines, just a
+   hand-drawn rule above and below. */
+.recipe table {
+  width: auto;
+  margin-block: 0.5rem var(--pico-typography-spacing-vertical);
+  border-collapse: collapse;
+  position: relative;
+  border: 0;
+}
+
+/* Hand-drawn rules above and below the list: the same pen stroke as
+   <hr> (the --hr-stroke/mask declarations are shared with the hr rule
+   above), positioned against the table so they span only its width.
+   The bottom one is mirrored so the two don't match. */
+.recipe table::before,
+.recipe table::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+.recipe table::before { top: -4px; }
+.recipe table::after  { bottom: -4px; transform: scaleX(-1); }
+
+/* Markdown has no headerless tables, so these render an empty
+   header row; hide it. A table with real headers keeps them. */
+.recipe thead:not(:has(th:not(:empty))) {
+  display: none;
+}
+
+.recipe th,
+.recipe td {
+  padding: 0.1rem 0.5rem;
+  border: 0;
+  background: transparent;
+  vertical-align: baseline;
+}
+
+/* Quantity column */
+.recipe td:first-child {
+  padding-left: 0;
+  padding-right: 1.5rem;
+  white-space: nowrap;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--pico-color);
+}
+
+/* Ingredient column: a little extra on the right so the rules
+   run slightly past the longest ingredient. */
+.recipe td:last-child {
+  padding-left: 0;
+  padding-right: 1.5rem;
 }
