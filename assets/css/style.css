@@ -104,8 +104,24 @@
   }
 }
 
-/* Layout: constrain article width to a narrow, essay-like measure */
+
+/* Sticky footer: the page is a column at least as tall as the
+   viewport, and <main> soaks up any spare height, so on short pages
+   the footer sits at the bottom of the screen instead of right under
+   the content. */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+/* Layout: constrain article width to a narrow, essay-like measure.
+   `width: 100%` keeps the auto side margins from shrink-wrapping it
+   now that it is a flex item (max-width below still caps it). */
 main {
+  flex: 1 0 auto;
+  width: 100%;
   margin-inline: auto;
   overflow: visible;
 }
@@ -148,6 +164,36 @@ main {
     margin-inline: auto;
   }
 }
+
+/* Footer: shrink-wrapped to its links and centered, so the
+   hand-drawn <hr> above them spans only the width of the text. */
+.site-footer {
+    width: fit-content;
+    margin-inline: auto;
+    padding: 0;
+    margin-bottom: 0.25rem;
+}
+
+.site-footer hr {
+    margin-inline: -1rem;
+    margin-bottom: 0.1rem;
+}
+
+.site-footer-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.site-footer a {
+    text-decoration: none;
+}
+.site-footer a:hover,
+.site-footer a:focus {
+    text-decoration-offset: 4pt;
+}
+    
 
 /* Hand-drawn divider: a slightly wobbly pen stroke, tapered at the
    ends. Drawn as a mask over the muted border color so it follows the
