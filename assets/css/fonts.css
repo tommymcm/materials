@@ -68,5 +68,5 @@
   src: url("/assets/fonts/NotoEmoji%5Bwght%5D.ttf") format("truetype");
   font-weight: 300 700;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
