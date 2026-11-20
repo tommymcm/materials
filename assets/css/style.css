@@ -186,13 +186,6 @@ main {
     gap: 1rem;
 }
 
-.site-footer a {
-    text-decoration: none;
-}
-.site-footer a:hover,
-.site-footer a:focus {
-    text-decoration-offset: 4pt;
-}
     
 
 /* Hand-drawn divider: a slightly wobbly pen stroke, tapered at the
@@ -310,7 +303,7 @@ nav a {
   text-decoration: none;
 }
 
-nav a:not(.mobile-only):hover {
+nav a:not(.mobile-only, .no-hover):hover {
   text-decoration: underline wavy;
   text-decoration-thickness: 2px;
   text-underline-offset: 8px;
