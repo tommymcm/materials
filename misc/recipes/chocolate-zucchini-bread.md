@@ -15,10 +15,10 @@ When you're craving something sweet, but want to satisfy a healthy conscience, l
 | 1/2 cup | cocoa powder |
 | 1/2 teaspoon | salt |
 | 1 teaspoon | baking soda |
-| 1/2 cup | butter (softened) |
+| 1/4 cup | butter (softened) |
 | 3/4 cup | brown sugar |
 | 2 | eggs |
-| 1/2 cup | olive oil |
+| 1/4 cup | olive oil |
 | 1 teaspoon | (pure) vanilla extract |
 | 1 1/2 cup | shredded zucchini (~1 squash) |
 | 1 cup | dark chocolate chips, *divided* |
