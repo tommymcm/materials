@@ -1,4 +1,19 @@
 [
+  {
+    "role": "Reviewer",
+    "org": "ACM Transactions on Computer Systems (TOCS)",
+    "date": "2026"
+  },
+  {
+    "role": "Reviewer",
+    "org": "ACM Computing Surveys (CSUR)",
+    "date": "2026"
+  },
+  {
+    "role": "Reviewer",
+    "org": "ACM Transactions on Architecture and Code Optimization (TACO)",
+    "date": "2026"
+  },
   { "role": "Artifact Evaluation Committee",
     "org": "International Symposium on Code Generation and Optimization (CGO)",
     "date": "2027"
